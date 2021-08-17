@@ -1,0 +1,9 @@
+button{
+    border: 1px solid #000000;
+    border-radius: 5px;
+    width: 60px;
+    height: 40px;
+    font-family: 'Amiko', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+}
