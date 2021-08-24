@@ -1,0 +1,172 @@
+/*Inicio seção Header*/
+header {
+    background: var(--dark-gray);
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo-example {
+    margin: 5px 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    justify-self: flex-start;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+
+.container-form>form {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-form>a {
+    margin-left: 1%;
+    align-self:flex-start;
+    color:white;
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: .2s color ease-in-out;
+}
+
+.container-form>a:link,.container-form>a:visited,.container-form>a:active{
+    color:white;
+}
+
+.container-form>a:hover {
+    color:yellow;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .field-input-group{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+.field-input-group>input {
+    width: 200px;
+    height: 25px;
+}
+
+.field-input-group+.field-input-group {
+    margin-top: 5px;
+}
+
+.field-input-group>input {
+    margin-left: 5px;
+}
+
+form>button {
+    margin: 10px;
+    width: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: .3s background ease-in-out;
+}
+
+form>button:hover {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+form>button:hover::after {
+    content: url("https://img.icons8.com/ios-glyphs/30/ffffff/login-rounded-right--v1.png");
+}
+
+form>button::after {
+    content: url("https://img.icons8.com/ios-glyphs/30/000000/login-rounded-right--v1.png");
+    align-self: flex-end;
+}
+
+/*Fim seção Heades*/
+
+/*Início seção main*/
+main {
+    background: var(--light-gray);
+    width: 100vw;
+    height: 70vh;
+
+    display:flex;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+
+}
+
+section{
+    width:60%;
+    height:90%;
+
+    display:flex;
+    flex-direction: column;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+
+    margin:10px;
+}
+
+p + p {
+    margin-top:5px;
+}
+
+figure{
+    width:40%;
+    height:90%;
+
+    display:flex;
+    flex-direction: column;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+
+    object-fit: scale-down;
+}
+
+figure > img{
+    border:2px solid #000;
+    border-radius: 5px;
+    width:90%;
+    height:90%;
+}
+
+
+
+
+/*Termino seção main*/
+
+
+/*Início seção footer*/
+footer {
+    background: var(--dark-gray);
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer>p {
+    color: white;
+    font-weight: 600;
+}
+/*Termino seção footer*/
