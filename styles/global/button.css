@@ -1,9 +1,50 @@
-button{
+button {
     border: 1px solid #000000;
-    border-radius: 5px;
-    width: 60px;
+    border-radius: 20px;
+    background: #000;
+    width: 150px;
     height: 40px;
     font-family: 'Amiko', sans-serif;
     font-weight: 600;
+    color: #fff;
     cursor: pointer;
+    animation-duration: 0.2s;
+    transition: ease-in-out;
+    animation-name: exitButtonCustomHover;
+}
+
+button:hover:not(button:disabled){
+    animation-name: buttonCustomHover;
+    color: #000;
+    background: #fff;
+}
+
+button:disabled{
+    background: #2d2d2d;
+    color: #d2d2d2;
+    border-color: red;
+    cursor: default;
+}
+
+
+@keyframes buttonCustomHover {
+    from {
+        color: #fff;
+        background: #000;
+    }
+    to {
+        color: #000;
+        background: #fff;
+    }
+}
+
+@keyframes exitButtonCustomHover {
+    from {
+        color: #000;
+        background: #fff;
+    }
+    to {
+        color: #fff;
+        background: #000;
+    }
 }
