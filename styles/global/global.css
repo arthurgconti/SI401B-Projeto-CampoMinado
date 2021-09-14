@@ -10,19 +10,10 @@ Amiko: subtítulo (font-family: 'Amiko', sans-serif;)
 Catamaran: parágrafos (font-family: 'Catamaran', sans-serif;)
 */
 
-* {
-    margin: 0px;
-    padding: 0px;
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-size: 16px;
-    font-family: 'Catamaran', sans-serif;
-}
-
-h1, h2,h3{
-    font-family: 'Poppins', sans-serif;
-}
-h4, h5,h6{
-    font-family: 'Amiko', sans-serif;
 }
 
 /* Alterar para a paleta quando for definida */
