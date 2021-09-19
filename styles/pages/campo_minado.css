@@ -1,0 +1,218 @@
+* {
+    font-size: 16px;
+    font-family: 'Catamaran', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h4, h5, h6 {
+    font-family: 'Amiko', sans-serif;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #C4C4C4;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1020px;
+    background-color: #fff;
+    position: relative;
+    width: 70vw;
+    height: 90vh;
+    display: flex;
+    border-radius: 25px;
+}
+
+section {
+    color: #fff;
+    background-color: #D9E0E6;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 25px 0 0 25px;
+    padding: 12px;
+}
+
+section>header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+section header h1 {
+    margin: 0 10%;
+}
+
+section a>i {
+    font-size: 25px;
+    align-self: center;
+}
+
+section a {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px;
+    transition: 0.2s color ease-in-out;
+}
+
+a:link, a:visited {
+    color: #F2FEFA;
+}
+
+a:hover {
+    color: #000;
+}
+
+section header>img {
+    width: 70px;
+    height: 70px;
+}
+
+.container-campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.tempo {
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-family: 'Amiko', sans-serif;
+}
+
+#tempo{
+    font-weight: 600;
+}
+
+#campo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+}
+
+table tr {
+    height: 45px;
+}
+
+table tr td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+    width: 45px;
+    background:grey;
+}
+
+/*aside*/
+
+aside {
+    background-color: #484B4D;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 0px 25px 25px 0px;
+    color: #fff;
+    padding: 12px;
+}
+
+aside h1 {
+    justify-self: start;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+aside form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+aside form fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: none;
+    margin: 5px;
+    font-size: 1.13rem;
+    font-weight: 600;
+}
+
+fieldset>input {
+    width: 90%;
+}
+
+#modalidade {
+    width: 90%;
+    text-align: center;
+}
+
+#dimensoes {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#dimensoes>input {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+#dimensaoX, #dimensaoY, #bombas {
+    text-align: center;
+    padding-left: 0;
+}
+
+.container-button button+button {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.container-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-button>button {
+    margin: 10px 10px 5px;
+}
+
+button:disabled {
+    border: #C4C4C4;
+    background: #C4C4C4;
+    color: #fff;
+}

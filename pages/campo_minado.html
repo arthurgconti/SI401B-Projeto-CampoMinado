@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo Minado</title>
+    <link rel="stylesheet" href="../styles/global/global.css">
+    <link rel="stylesheet" href="../styles/pages/campo_minado.css">
+    <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
+</head>
+
+<body>
+
+    <main>
+        <div class="container">
+            <section>
+                <header>
+                    <img src="../assets/G7_2.png" alt="ícone bomba com g7 escrito dentro">
+                    <a href="./perfil.html"><i class="fas fa-user"></i></a>
+                    <a href="#"><i class="fas fa-trophy"></i></a>
+                </header>
+                <div class="container-campo">
+                    <div class="tempo">
+                        <p id="tempo">Tempo:&ThickSpace;</p>
+                        <p>00:12</p>
+                    </div>
+                    <div id="campo">
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+
+            </section>
+            <aside>
+                <h1>Configurações <br />da partida</h1>
+
+                <form>
+                    <fieldset>
+                        <label for="modalidade">Modalidade</label>
+                        <!-- <input type="text" id="modalidade" name="modalidade" placeholder="Cléber"> -->
+                        <select name="modalidade" id="modalidade">
+                            <option value="default">Selecione</option>
+                            <option value="classica" selected>Clássica</option>
+                            <option value="rivotrill">Rivotrill</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset id="fieldset-dimensoes">
+                        <label for="dimensoes">Dimensões do campo</label>
+                        <div id="dimensoes">
+                            <input type="text" name="dimensaoX" id="dimensaoX" placeholder="10" maxlength="3">
+                            X
+                            <input type="text" name="dimensaoY" id="dimensaoY" placeholder="10" maxlength="3">
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="bombas">Número de Bombas</label>
+                        <input type="text" id="bombas" name="bombas" placeholder="5">
+                    </fieldset>
+
+                </form>
+                <div class="container-button">
+                    <button type="button" disabled>Configurar</button>
+                    <button type="button">Iniciar</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+
+</body>
+
+</html>
