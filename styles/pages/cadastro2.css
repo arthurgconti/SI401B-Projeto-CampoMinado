@@ -59,8 +59,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: justify;
-    font-size: 18px;
+    text-align: center;
+    font-size: 24px;
     color: #D9E0E6;
 }
 
@@ -89,11 +89,19 @@ body {
     text-align: center;
     margin-top: 0.5rem;
 }
-
+.formulario
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 .cadastrar {
     background-color: rgba(226, 78, 78, 0);
     width: 20vw;
     height: 30vh;
+    margin-top: 2.5rem;
+    font-size: 22px;
 }
 
 .cadastrar p:not(:first-child) {
@@ -114,6 +122,8 @@ body {
     width: 20vw;
     height: 4vh;
     border-radius: 24px;
+    font-size: 20px;
+    padding-left: 8px;
 }
 
 .btacesso {

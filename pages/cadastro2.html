@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/pages/cadastro2.css" type="text/css">
     <link rel="stylesheet" href="../styles/global/global.css" type="text/css">
-    
+
     <title>Cadastro 2/2</title>
 </head>
 
@@ -21,38 +21,48 @@
             <img class="imagC" src="../assets/logo2.png" alt="Poster Campo Minado">
 
             <div class="desc">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus laboriosam deserunt, praesentium
-                    consequatur, eaque ex dolore corporis nihil minima, iusto recusandae obcaecati nulla dolorem optio.
-                    Cupiditate et ab consectetur esse.</p>
+                <p>Só mais algumas informações e estamos prontos. Não se esqueça de colocar um email válido.</p>
             </div>
 
         </div>
 
         <div class="ctn2">
-            
+
             <p id="title">Junte-se a nós</p>
             <p id="subtittle">Dados do Jogador</p>
 
-            <div class="cadastrar" style="margin-top: 2.5rem;">
+            <form action="./inicial.html" method="GET" class="formulario">
 
-                <p>Email</p>
-                <div class="info"></div>
+                <div class="cadastrar">
 
-                <p>Usuário</p>
-                <div class="info"></div>
+                    <p>Email</p>
+                    <div class="info">
+                        <label for="email">
+                            <input type="email" class="info">
+                        </label>
+                    </div>
 
-                <p>Senha</p>
-                <div class="info"></div>
+                    <p>Usuário</p>
+                    <div class="info">
+                        <label for="usuario">
+                            <input type="text" class="info">
+                        </label>
+                    </div>
 
-            </div>
+                    <p>Senha</p>
+                    <div class="info">
+                        <label for="senha">
+                            <input type="text" class="info">
+                        </label>
+                    </div>
 
-            <div class="btacesso">
-                <a href="./inicial.html" class="btacessoE">Finalizar Cadastro</a>
-            </div>
+                </div>
 
-            <!-- <div class="prox" style="margin-top: 2.5rem;">
-                <p style="margin-top: 0.5rem;">Passo 2 de 2</p>
-            </div> -->
+                <div class="btacesso">
+                    <a href="./inicial.html" class="btacessoE">Finalizar Cadastro</a>
+                </div>
+
+            </form>
 
             <div class="container-steps">
                 <div class="circle left-circle"></div>

@@ -49,19 +49,26 @@ body {
     border-radius: 4px;
     padding: 5px;
 }
-
+.margem
+{
+    margin-top: 2rem;
+    text-align: center;
+}
 .desc {
     background-color: #ffffff00;
     width: 26vw;
     height: 34vh;
     border-radius: 24px;
     padding: 6px;
-    display: flex;
     align-items: center;
-    justify-content: center;
     text-align: justify;
-    font-size: 18px;
+    font-size: 22px;
     color: #D9E0E6;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
 }
 
 .ctn2 {
@@ -97,6 +104,7 @@ body {
     background-color: rgba(226, 78, 78, 0);
     width: 20vw;
     height: 40vh;
+    font-size: 20px;
 }
 
 .cadastrar p:not(:first-child) {
@@ -117,14 +125,19 @@ body {
     width: 20vw;
     height: 4vh;
     border-radius: 24px;
+    font-size: 20px;
+    padding-left: 12px;
 }
 
 .seta {
     margin: 1rem 0px;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
     background-color: rgba(226, 78, 78, 0);
     width: 2vw;
     height: 4vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
 .seta>a {

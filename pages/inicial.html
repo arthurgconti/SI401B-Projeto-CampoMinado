@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/pages/inicial.css" type="text/css">
     <link rel="stylesheet" href="../styles/global/global.css" type="text/css">
-    
+
     <title>Campo Minado</title>
 </head>
 
@@ -15,56 +15,59 @@
 
     <div class="container">
 
-        <div class="ctn1">
+        <div class="esquerda">
+
             <img class="logo" src="../assets/G7_2.png" alt="Logo da equipe">
-            <p style="font-size: 45px; font-weight: bold; text-align: center;">Acesso</p>
+            <p class="acessotxt">Acesso</p>
 
-            <div class="acesso" style="margin-top: 5rem;">
+            <form action="./campo_minado.html" method="GET" class="formulario">
 
-                <p style="margin-top: 1rem; font-size: 20px;">Usuário</p>
+                <div class="acesso">
 
-                <div class="usu" style="margin-top: 0.5rem;">
+                    <p class="usutxt">Usuário</p>
+
+                    <div class="info">
+                        <label for="login">
+                            <input class="usu" type="text">
+                        </label>
+                    </div>
+
+                    <p class="usutxt">Senha</p>
+
+                    <div class="info">
+                        <label for="password">
+                            <input class="usu" type="password" name="" id="">
+                        </label>
+                    </div>
 
                 </div>
 
-                <p style="margin-top: 1rem; font-size: 20px;">Senha</p>
+                <button type="submit" class="btlogar">
+                    Logar-se
+                </button>
 
-                <div class="usu" style="margin-top: 0.5rem;">
+            </form>
 
-                </div>
-
-            </div>
-
-            <div class="btacesso" style="margin-top: 2.3rem;">
-                <a href="./campo_minado.html" class="btacessoE">Logar-se</a>
-            </div>
-
-            <div style="margin-top: 0.5rem; display: flex; justify-content: flex-start;">
+            <div>
                 <a class="btcadastro" href="./cadastro1.html">Cadastre-se</a>
             </div>
 
         </div>
 
-        <div class="ctn2">
+        <div class="direita">
 
-            <img class="imagC" src="../assets/logo2.png" alt="Poster Campo Minado" style="margin-top: 4rem;">
+            <img class="imagC" src="../assets/logo2.png" alt="Poster Campo Minado">
 
-            <div class="desc" style="margin-top: 3rem;">
+            <div class="desc">
 
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit doloribus repellat esse quo
-                    repudiandae rerum molestias. Odit aut aliquam iure quam blanditiis adipisci, autem, eum vel, aliquid
-                    fugit quos tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis amet mollitia
-                    omnis quis? Quo blanditiis vitae non perferendis quas tempore fugiat rem in cumque repellat? Ratione
-                    veniam quidem maiores doloribus!</p>
+                <p>Bem-vindo ao Campo Minado do Grupo 07. Nosso jogo oferece duas
+                    dificuldades, juntamente com a possibilidade de customizar sua jogabilidade. Desafie-se com essas
+                    novas modalidades e dispute
+                    com seus amigos através de nosso sistema de ranqueamento global e pontuação.</p>
 
             </div>
-
         </div>
-
-
-
     </div>
 
 </body>
-
 </html>

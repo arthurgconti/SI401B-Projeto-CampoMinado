@@ -18,7 +18,14 @@ body {
     display: flex;
     border-radius: 25px; 
 }
-.ctn1
+.formulario
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.esquerda
 {
     background-color: #D9E0E6;
     flex: 1;
@@ -38,18 +45,32 @@ body {
     padding: 5px;
     width: 7vw;
 }
+.acessotxt
+{
+    font-size: 45px;
+    font-weight: bold;
+    text-align: center;
+}
 .acesso
 {
     background-color: rgba(255, 255, 255, 0);
     width: 20vw;
-    height: 20vh;  
+    height: 20vh;
+    margin-top: 5rem;
 }
-.usu
+.usutxt
+{
+    margin-top: 1rem;
+    font-size: 20px;
+}
+.info
 {
     background-color: rgb(255, 255, 255);
     width: 20vw;
     height: 4vh;
     border-radius: 24px;
+    font-size: 20px;
+    padding: 6px;
 }
 .btacesso
 {
@@ -62,7 +83,7 @@ body {
     font-size: 20px;
     color: #fff;
 }
-.btacessoE
+.btlogar
 {
     background-color: #484B4D;
     width: 13vw;
@@ -74,8 +95,9 @@ body {
     color: #fff;
     border-style: solid;
     border-color: #484B4D;
+    margin-top: 2.3rem;
 }
-.btacessoE:hover
+.btlogar:hover
 {
     color:black;
     border-color: black;
@@ -89,11 +111,24 @@ body {
     color: black;
     text-decoration: none;
 }
+.cadtxt
+{
+    margin-top: 0.5rem;
+    display: flex; justify-content:
+    flex-start;
+}
 .btcadastro:hover
 {
     color: #0f238a;
 }
-.ctn2
+.cadastxt
+{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content:
+    flex-start;
+}
+.direita
 {
     background-color: #484B4D;
     flex: 1;
@@ -113,6 +148,7 @@ body {
     width: 30%;
     border-radius: 4px;
     padding: 5px;
+    margin-top: 4rem;
 }
 .desc
 {
@@ -127,4 +163,5 @@ body {
     text-align: justify;
     font-size: 18px;
     color: #D9E0E6;
+    margin-top: 3rem;
 }
