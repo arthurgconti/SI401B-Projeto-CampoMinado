@@ -13,7 +13,7 @@ button {
     animation-name: exitButtonCustomHover;
 }
 
-button:hover:not(button:disabled){
+button:hover:not(:disabled){
     animation-name: buttonCustomHover;
     color: #000;
     background: #fff;

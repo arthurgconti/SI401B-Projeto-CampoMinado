@@ -82,16 +82,16 @@ aside header>img {
     margin-right: auto
 }
 
-.seta>a {
+.seta>#back {
     margin:0px;
     transition: 0.2s color ease-in-out;
 }
 
-.seta a:link,.seta a:visited{
+.seta #back:link,.seta #back:visited{
     color:#fff;
 }
 
-.seta a:hover{
+.seta #back:hover{
     color:#000;
 }
 .seta > i{
@@ -147,7 +147,7 @@ aside header>img {
     transition: 0.2s background ease-in-out;
 }
 
-a:hover:not(.seta>a) {
+a:hover:not(#back) {
     background: #fff;
     color: #000;
 }
