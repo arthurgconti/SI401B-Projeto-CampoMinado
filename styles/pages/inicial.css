@@ -56,14 +56,26 @@ body {
     background-color: rgba(255, 255, 255, 0);
     width: 20vw;
     height: 20vh;
-    margin-top: 5rem;
+    margin-top: 2.5rem;
 }
 .usutxt
 {
     margin-top: 1rem;
     font-size: 20px;
 }
-.info
+label{
+    /* margin-top: 1rem; */
+    font-size: 20px;
+}
+input{
+    height:35px;
+}
+.info{
+    display:flex;
+    flex-direction: column;
+    margin-top:1.5rem;
+}
+/* .info
 {
     background-color: rgb(255, 255, 255);
     width: 20vw;
@@ -71,7 +83,7 @@ body {
     border-radius: 24px;
     font-size: 20px;
     padding: 6px;
-}
+} */
 .btacesso
 {
     background-color: #ffffff;
