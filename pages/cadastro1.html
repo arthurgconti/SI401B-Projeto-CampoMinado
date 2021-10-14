@@ -37,39 +37,32 @@
             <form action="./cadastro2.html" method="GET">
 
                 <div class="cadastrar">
-                    <p>Nome</p>
-                    <div class="info">
-                        <label>
-                            <input type="text" class="info">
-                        </label>
-                    </div>
                     
-                    <p>Data de Nascimento</p>
-                    <div class="info">
-                        <label>
-                            <input type="text" class="info">
-                        </label>
+                    <div>
+                        <label id="labelNome">Nome</label>
+                            <input placeholder="Rafael Sobrenome" id="nome" type="text" class="info">
+                    </div>               
+                    
+                    <div>
+                        <label id="labelData">Data de Nascimento</label>
+                        <input placeholder="21/12/2001" id="data" type="date" class="info">
                     </div>
 
-                    <p>CPF</p>
-                    <div class="info">
-                        <label>
-                            <input type="text" class="info">
-                        </label>
+                    <div>
+                        <label id="labelCPF">CPF</label>
+                        <input placeholder="11111111111" id="cpf" type="number" class="info">
                     </div>
 
-                    <p>Telefone</p>
-                    <div class="info">
-                        <label>
-                            <input type="text" class="info">
-                        </label>
+                    <div>
+                        <label id="labelTelefone">Telefone</label>
+                        <input placeholder="19991501195" id="telefone" type="tel" class="info">
                     </div>
 
                 </div>
 
                 <div class="seta">
-                    <a href="cadastro2.html">
-                        <i class="fas fa-arrow-right"></i>
+                    <a>
+                        <i onclick="cadastrar()" class="fas fa-arrow-right"></i>
                     </a>
                 </div>
 
@@ -86,7 +79,7 @@
         </div>
 
     </div>
-
+    <script src="../js/autenticar.js"></script>
 </body>
 
 </html>

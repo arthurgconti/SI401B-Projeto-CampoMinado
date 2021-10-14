@@ -35,31 +35,25 @@
 
                 <div class="cadastrar">
 
-                    <p>Email</p>
-                    <div class="info">
-                        <label>
-                            <input type="email" class="info">
-                        </label>
+                    <div>
+                        <label id="labelEmail">Email</label>
+                        <input placeholder="abc123@gmail.com" id="email" type="email" class="info">
                     </div>
 
-                    <p>Usuário</p>
-                    <div class="info">
-                        <label>
-                            <input type="text" class="info">
-                        </label>
+                    <div>
+                        <label id="labelUsuario">Usuário</label>
+                        <input placeholder="usuario" id="usuario" type="text" class="info">
                     </div>
 
-                    <p>Senha</p>
-                    <div class="info">
-                        <label>
-                            <input type="text" class="info">
-                        </label>
+                    <div>
+                        <label id="labelSenha">Senha</label>
+                        <input placeholder="senha" id="senha" type="text" class="info">
                     </div>
 
                 </div>
 
                 <div class="btacesso">
-                    <a href="./inicial.html" class="btacessoE">Finalizar Cadastro</a>
+                    <a onclick="cadastrar2()" class="btacessoE">Finalizar Cadastro</a>
                 </div>
 
             </form>
@@ -76,7 +70,7 @@
         </div>
 
     </div>
-
+    <script src="../js/autenticar2.js"></script>
 </body>
 
 </html>
