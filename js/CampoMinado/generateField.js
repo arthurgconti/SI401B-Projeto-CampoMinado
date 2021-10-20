@@ -1,17 +1,21 @@
 function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
     const campo = document.getElementById('campo')
     const table = document.createElement('table')
+    timer()
 
-    if (sizeRow > MAXROWSIZE || sizeColumn > MAXCOLUMNSIZE){
+    if (sizeRow > MAXROWSIZE || sizeColumn > MAXCOLUMNSIZE) {
         alert('Tamanho máximo do campo excedido')
-        return
+        return false
     }
-    if(bombsQuantity > sizeRow*sizeColumn){
+
+
+
+    if (bombsQuantity > (sizeRow * sizeColumn)) {
         alert('Quantidade máxima de bombas excedido')
-        return
+        return false
     }
-    
-        
+
+
 
     for (let i = 0; i < sizeRow; i++) {
         let row = document.createElement('tr')
@@ -25,5 +29,7 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
     }
 
     campo.append(table)
+
+    return true
 
 }

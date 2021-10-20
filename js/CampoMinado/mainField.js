@@ -13,7 +13,7 @@ bombs.setAttribute('disabled', true)
 gameMode.setAttribute('disabled', true)
 
 settingButton.addEventListener('click', configurationGame)
-startingButton.addEventListener('click', startGame)
+startingButton.addEventListener('click', loadGame)
 
 
 
