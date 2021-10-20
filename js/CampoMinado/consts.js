@@ -1,0 +1,2 @@
+const MAXROWSIZE = 10;
+const MAXCOLUMNSIZE = 10;
