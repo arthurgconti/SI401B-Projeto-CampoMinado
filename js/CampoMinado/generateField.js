@@ -7,6 +7,10 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
         return false
     }
 
+    if (sizeRow < MINROWSIZE || sizeColumn < MINCOLUMNSIZE) {
+        alert('Tamanho menor que o mínimo do campo permitido')
+        return false
+    }
 
 
     if (bombsQuantity > (sizeRow * sizeColumn)) {
@@ -21,7 +25,7 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
         for (let j = 0; j < sizeColumn; j++) {
             let column = document.createElement('td')
             column.setAttribute('id', `${i}-${j}`)
-            column.addEventListener('click',timer)
+            column.addEventListener('click', timer)
 
             row.appendChild(column)
         }
