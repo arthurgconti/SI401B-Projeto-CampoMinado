@@ -20,9 +20,8 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
     }
 
 
-
-    const celula = createCell(0, true, 1, 2)
-    console.log(celula);
+    //TODO criação das células
+    //const celula = createCell(0, true, 1, 2)
 
     for (let i = 0; i < sizeRow; i++) {
         let row = document.createElement('tr')

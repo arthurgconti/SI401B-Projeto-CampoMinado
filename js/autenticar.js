@@ -7,23 +7,23 @@ let labelData = document.querySelector("#labelData");
 let validData = false;
 
 let cpf = document.querySelector("#cpf");
+cpf.setAttribute('maxlength', '14')
 let labelCPF = document.querySelector("#labelCPF");
 let validCPF = false;
 
 let telefone = document.querySelector("#telefone");
+telefone.setAttribute('maxlength', '14')
 let labelTelefone = document.querySelector("#labelTelefone");
 let validTelefone = false;
 
 
 
-
 nome.addEventListener("keyup", () => {
-    if(nome.value.length < 6){
+    if (nome.value.length < 6) {
         labelNome.setAttribute("style", "color: red");
         labelNome.innerHTML = "Nome *Insira no mínimo 3 caracteres.";
         validNome = false;
-    }
-    else{
+    } else {
         labelNome.setAttribute("style", "color: green");
         labelNome.innerHTML = "Nome";
         validNome = true;
@@ -32,12 +32,11 @@ nome.addEventListener("keyup", () => {
 });
 
 data.addEventListener("keyup", () => {
-    if(data.value.length < 10){
+    if (data.value.length < 10) {
         labelData.setAttribute("style", "color: red");
         labelData.innerHTML = "Data * Insira uma data válida";
         validData = false;
-    }
-    else{
+    } else {
         labelData.setAttribute("style", "color: green");
         labelData.innerHTML = "Data";
         validData = true;
@@ -45,13 +44,14 @@ data.addEventListener("keyup", () => {
 
 });
 
+cpf.addEventListener('input', cpfMask)
+
 cpf.addEventListener("keyup", () => {
-    if(cpf.value.length != 11){
+    if (cpf.value.length != 14) {
         labelCPF.setAttribute("style", "color: red");
         labelCPF.innerHTML = "CPF * Insira um CPF válido";
         validCPF = false;
-    }
-    else{
+    } else {
         labelCPF.setAttribute("style", "color: green");
         labelCPF.innerHTML = "CPF";
         validCPF = true;
@@ -59,13 +59,14 @@ cpf.addEventListener("keyup", () => {
 
 });
 
+telefone.addEventListener('input', phoneMask)
+
 telefone.addEventListener("keyup", () => {
-    if(telefone.value.length != 11){
+    if (telefone.value.length != 14) {
         labelTelefone.setAttribute("style", "color: red");
         labelTelefone.innerHTML = "Telefone * Insira um telefone válido";
         validTelefone = false;
-    }
-    else{
+    } else {
         labelTelefone.setAttribute("style", "color: green");
         labelTelefone.innerHTML = "Telefone";
         validTelefone = true;
@@ -73,12 +74,11 @@ telefone.addEventListener("keyup", () => {
 
 });
 
-function cadastrar(){
-    if(validNome && validData && validCPF && validTelefone){
+function cadastrar() {
+    if (validNome && validData && validCPF && validTelefone) {
         alert("Prosseguindo");
         window.location.replace("../pages/cadastro2.html");
-    }
-    else{
+    } else {
         alert("Tem campo faltando...");
     }
 }

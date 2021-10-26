@@ -10,6 +10,8 @@ let senha = document.querySelector("#senha");
 let labelSenha = document.querySelector("#labelSenha");
 let validSenha = false;
 
+email.addEventListener('input',emailMask)
+
 email.addEventListener("keyup", () => {
     if(email.value.includes("@") == 0){
         labelEmail.setAttribute("style", "color: red");
