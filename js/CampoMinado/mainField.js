@@ -4,6 +4,7 @@ const dimensionX = document.getElementById("dimensaoX")
 const dimensionY = document.getElementById("dimensaoY")
 const bombs = document.getElementById("bombas")
 const gameMode = document.getElementById("modalidade")
+var gameStarted = false
 
 
 startingButton.setAttribute('disabled', true)

@@ -8,6 +8,8 @@ function configurationGame() {
     startingButton.removeAttribute('disabled')
 }
 
+
+
 function loadGame() {
 
     var timer = null

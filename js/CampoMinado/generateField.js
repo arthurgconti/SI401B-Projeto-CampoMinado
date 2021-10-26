@@ -1,7 +1,6 @@
 function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
     const campo = document.getElementById('campo')
     const table = document.createElement('table')
-    timer()
 
     if (sizeRow > MAXROWSIZE || sizeColumn > MAXCOLUMNSIZE) {
         alert('Tamanho máximo do campo excedido')
@@ -22,6 +21,7 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
         for (let j = 0; j < sizeColumn; j++) {
             let column = document.createElement('td')
             column.setAttribute('id', `${i}-${j}`)
+            column.addEventListener('click',timer)
 
             row.appendChild(column)
         }
