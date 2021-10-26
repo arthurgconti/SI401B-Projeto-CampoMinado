@@ -2,7 +2,7 @@ var seconds = 0
 var gamemodeTimer
 document.getElementById('tempo').innerText = '00:00'
 
-
+//DONE startTimer on Click
 function timerClassico() {
     if (!gameStarted) {
         gameStarted = !gameStarted

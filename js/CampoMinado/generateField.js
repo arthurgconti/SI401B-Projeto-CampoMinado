@@ -7,6 +7,7 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
         return false
     }
 
+
     if (sizeRow < MINROWSIZE || sizeColumn < MINCOLUMNSIZE) {
         alert('Tamanho menor que o mínimo do campo permitido')
         return false
@@ -19,6 +20,9 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
     }
 
 
+
+    const celula = createCell(0, true, 1, 2)
+    console.log(celula);
 
     for (let i = 0; i < sizeRow; i++) {
         let row = document.createElement('tr')
