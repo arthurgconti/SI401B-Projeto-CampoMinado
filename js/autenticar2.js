@@ -56,7 +56,7 @@ senha.addEventListener("keyup", () => {
 
 function cadastrar2(){
     if(validEmail && validUsuario && validSenha){
-        alert("Show");
+        alert("Cadastro Concluído");
         window.location.replace("./inicial.html");
     }
     else{
