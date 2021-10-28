@@ -48,12 +48,13 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
 			campo[i][j] = celula;
 		}
 	}
-
+/*
     for(var i = 0; i < bombsQuantity; i++) {
 		let index = Math.floor(Math.random()*noBomb.length);
 		(campo[noBomb[index].linha][noBomb[index].coluna]).valor = -1;
 		noBomb.splice(index, 1);
 	}
+    */
 
     for(var i = 0; i < sizeRow; i++) {
 		for(var j = 0; j < sizeColumn; j++) {
