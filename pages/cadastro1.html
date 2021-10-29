@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="../styles/global/global.css" type="text/css">
 
     <!-- Script para importação do kit font-awesome, que serve para utilizar-mos os ícones do font-awesome -->
-    <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
-    
+    <script src="https://kit.fontawesome.com/1de6443f41.js" defer></script>
+    <script src="../js/steps.js" defer></script>
+
     <title>Cadastro 1/2</title>
 </head>
 
@@ -34,36 +35,62 @@
             <p id="title">Junte-se a nós</p>
             <p id="subtittle">Dados Gerais</p>
 
-            <form action="./cadastro2.html" method="GET">
+            <form method="GET">
 
-                <div class="cadastrar">
-                    
-                    <div>
-                        <label id="labelNome">Nome</label>
+                <div class="etapa-1 show-form">
+                    <div class="cadastrar">
+
+                        <div>
+                            <label id="labelNome">Nome</label>
                             <input placeholder="Rafael Sobrenome" id="nome" type="text" class="info">
-                    </div>               
-                    
-                    <div>
-                        <label id="labelData">Data de Nascimento</label>
-                        <input placeholder="21/12/2001" id="data" type="date" class="info">
+                        </div>
+
+                        <div>
+                            <label id="labelData">Data de Nascimento</label>
+                            <input placeholder="21/12/2001" id="data" type="date" class="info">
+                        </div>
+
+                        <div>
+                            <label id="labelCPF">CPF</label>
+                            <input placeholder="11111111111" id="cpf" type="text" class="info">
+                        </div>
+
+                        <div>
+                            <label id="labelTelefone">Telefone</label>
+                            <input placeholder="19991501195" id="telefone" type="text" class="info">
+                        </div>
+
                     </div>
 
-                    <div>
-                        <label id="labelCPF">CPF</label>
-                        <input placeholder="11111111111" id="cpf" type="text" class="info">
+                    <div class="seta">
+                        <a>
+                            <i onclick="nextStep()" class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
-
-                    <div>
-                        <label id="labelTelefone">Telefone</label>
-                        <input placeholder="19991501195" id="telefone" type="text" class="info">
-                    </div>
-
                 </div>
+                <div class="etapa-2 hide-form">
+                    <div class="cadastrar">
 
-                <div class="seta">
-                    <a>
-                        <i onclick="cadastrar()" class="fas fa-arrow-right"></i>
-                    </a>
+                        <div>
+                            <label id="labelEmail">Email</label>
+                            <input placeholder="abc123@gmail.com" id="email" type="email" class="info">
+                        </div>
+
+                        <div>
+                            <label id="labelUsuario">Usuário</label>
+                            <input placeholder="usuario" id="usuario" type="text" class="info">
+                        </div>
+
+                        <div>
+                            <label id="labelSenha">Senha</label>
+                            <input placeholder="senha" id="senha" type="text" class="info">
+                        </div>
+
+                    </div>
+
+                    <div class="btacesso">
+                        <a onclick="cadastrar2()" class="btacessoE">Finalizar Cadastro</a>
+                    </div>
                 </div>
 
             </form>
@@ -72,6 +99,7 @@
                 <div class="circle active left-circle"></div>
 
                 <div class="container-progress">
+                    
                 </div>
                 <div class="circle right-circle"></div>
             </div>
