@@ -77,8 +77,9 @@ telefone.addEventListener("keyup", () => {
 function cadastrar() {
     if (validNome && validData && validCPF && validTelefone) {
         alert("Prosseguindo");
-        window.location.replace("../pages/cadastro2.html");
+        return true
     } else {
         alert("Tem campo faltando...");
+        return false
     }
 }
