@@ -1,9 +1,10 @@
 function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
+
     const campo = document.getElementById('campo')
     const table = document.createElement('table')
 
-    //todo aeasheasea
 
+    // #region validação do campo
     if (sizeRow > MAXROWSIZE || sizeColumn > MAXCOLUMNSIZE) {
         alert('Tamanho máximo do campo excedido')
         return false
@@ -20,69 +21,99 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
         alert('Quantidade máxima de bombas excedido')
         return false
     }
-
-    // for(let i < 0;i<bombsQuantity;i++){
-    //     Math.random()
-    // }
+    // #endregion
 
 
 
-    // for(let i = 0; i < bombsQuantity; i++) {
-	// 	indice = Math.floor(Math.random()*semBomba.length);
-	// 	(campo[semBomba[indice].linha][semBomba[indice].coluna]).valor = -1;
-	// 	semBomba.splice(indice, 1);
-	// }
+
+
+    // #region geração de bombas
+
 
 
     //TODO criação das células
-    //const celula = 
 
-    
-	let noBomb = [];
+    const campoMinado = new CampoMinado()
 
-    for(let i = 0; i < sizeRow; i++) {
-		campo[i] = [];
-		for(var j = 0; j < sizeColumn; j++) {
-			const celula = createCell(0, false, i, j);
-			noBomb[(i*sizeColumn) + j] = celula;
-			campo[i][j] = celula;
-		}
-	}
-/*
-    for(var i = 0; i < bombsQuantity; i++) {
-		let index = Math.floor(Math.random()*noBomb.length);
-		(campo[noBomb[index].linha][noBomb[index].coluna]).valor = -1;
-		noBomb.splice(index, 1);
-	}
-    */
+    for (let i = 0; i < sizeRow; i++) {
+        campoMinado.cells[i] = []
+        for (var j = 0; j < sizeColumn; j++) {
+            const cell = new Cell(i, j, 0, '', false)
+            campoMinado.noBomb[(i * sizeColumn) + j] = cell
+            campoMinado.cells[i][j] = cell
+        }
+    }
 
-    for(var i = 0; i < sizeRow; i++) {
-		for(var j = 0; j < sizeColumn; j++) {
-			if(campo[i][j].valor != -1) {
-				var totBombas = 0;
+    for (let i = 0; i < bombsQuantity; i++) {
+        const randomIndex = Math.floor(Math.random() * campoMinado.noBomb.length)
+        campoMinado.cells[(campoMinado.noBomb[randomIndex]).row][(campoMinado.noBomb[randomIndex]).column].value = -1
+        campoMinado.cells[(campoMinado.noBomb[randomIndex]).row][(campoMinado.noBomb[randomIndex]).column].imageName = IMAGES.bomb
+        campoMinado.noBomb.splice(randomIndex, 1)
+    }
 
-				var coord = [[i+1, j-1], [i, j-1], [i-1, j-1], [i-1, j], 
-							[i-1, j+1], [i, j+1], [i+1, j+1], [i+1, j]];
 
-				for(var k = 0; k < 8; k++){
-					if(((coord[k][0] >= 0) && (coord[k][1] >= 0))&&((coord[k][0] < sizeRow) && (coord[k][1] < sizeColumn))) 
-						if(campo[coord[k][0]][coord[k][1]].valor == -1)
-							totBombas++;
-				}
+    // #endregion
 
-				campo[i][j].valor = totBombas;
+    //O(n³)
+    for (let i = 0; i < sizeRow; i++) {
+        for (let j = 0; j < sizeColumn; j++) {
+            if ((campoMinado.cells[i][j]).value !== -1) {
+                let totalBombs = 0
 
-			}
-		}
-	}
+                /*
+                    i = row
+                    j = column
 
+                    [i-1,j-1],[i-1,j],[i-1,j+1]
+                    [i,j-1],[i,j],[i,j+1]
+                    [i+1,j-1],[i+1,j],[i+1,j+1]
+                */
+                const cellNeighborhood = [
+                    //0    |   1
+                    [i + 1, j - 1], //0
+                    [i, j - 1], //1
+                    [i - 1, j - 1], //2
+                    [i - 1, j], //3
+                    [i - 1, j + 1], //4
+                    [i, j + 1], //5
+                    [i + 1, j + 1], //6
+                    [i + 1, j] //7
+                ];
+
+                for (let k = 0; k < 8; k++) {
+                    if (((cellNeighborhood[k][0] >= 0) && (cellNeighborhood[k][1] >= 0)) &&
+                        ((cellNeighborhood[k][0] < sizeRow) && (cellNeighborhood[k][1] < sizeColumn)))
+
+                        campoMinado.cells[cellNeighborhood[k][0]][cellNeighborhood[k][1]].value === -1 &&
+                        (totalBombs++)
+
+                }
+
+                campoMinado.cells[i][j].value = totalBombs
+
+            }
+        }
+    }
+
+
+    // #region GenerateField
+    //TODO bombs
 
     for (let i = 0; i < sizeRow; i++) {
         let row = document.createElement('tr')
         for (let j = 0; j < sizeColumn; j++) {
             let column = document.createElement('td')
             column.setAttribute('id', `${i}-${j}`)
-            column.addEventListener('click',timer)
+            column.addEventListener('click', timer)
+
+            if (campoMinado.cells[i][j].value != 0) {
+                let image = document.createElement("image");
+                image.setAttribute("src", `assets/${campoMinado.cells[i][j].imageName}`);
+                image.setAttribute("id", `${i}-${j}`);
+                image.style.visibility = "hidden";
+                column.appendChild(image);
+            }
+            column.addEventListener('click', campoMinado.cells[i][j].cellClick.bind(event, `${i}-${j}`, campoMinado, column))
 
             row.appendChild(column)
         }
@@ -90,6 +121,7 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
     }
 
     campo.append(table)
+    // #endregion
 
     return true
 
