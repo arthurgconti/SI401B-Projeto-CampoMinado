@@ -37,14 +37,15 @@ function loadGame() {
     if (timer === null)
         return
 
-    const flag = generateField(dimensionX.value, dimensionY.value, bombs.value, timer)
+    const campo = generateField(dimensionX.value, dimensionY.value, bombs.value, timer)
 
-    if (flag) {
+    if (campo) {
         startingButton.setAttribute('disabled', true)
         dimensionX.setAttribute('disabled', true)
         dimensionY.setAttribute('disabled', true)
         bombs.setAttribute('disabled', true)
         gameMode.setAttribute('disabled', true)
+        document.getElementById('cheat').addEventListener('click', campo.cheatFunction.bind(event, campo))
     }
 
 

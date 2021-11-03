@@ -6,7 +6,7 @@ class Cell {
      * @params value Valor da célula | -1 bomba, 0 vazio, >0 n de bombas
      * @params imageName nome da imagem na pasta assets
      * @params state Status: aberto/fechado
-     * @return Retorna um objeto com os paramêtros passados
+     * @return Retorna um objeto com os parâmetros passados
      */
     constructor(row, column, value, imageName, state) {
         this.row = row
@@ -17,15 +17,20 @@ class Cell {
     }
 
     cellClick(id, campoMinado, cell) {
-        const idCell = id.split('-')
-        if (!campoMinado.cells[parseInt(idCell[0])][parseInt(idCell[1])].state)
-            Cell.checkCell(parseInt(idCell[0]), parseInt(idCell[1]), campoMinado, cell)
+        if (!gameEnded) {
+            const idCell = id.split('-')
+            if (!campoMinado.cells[parseInt(idCell[0])][parseInt(idCell[1])].state)
+                Cell.checkCell(parseInt(idCell[0]), parseInt(idCell[1]), campoMinado, cell)
+        } else
+            alert("Jogo já finalizado")
     }
 
     static openCell(row, column, campoMinado, cell) {
+        if (!cell)
+            cell = document.getElementById(`${row}-${column}`)
+
         if (campoMinado.cells[row][column].value > 0) {
             cell.innerHTML = campoMinado.cells[row][column].value
-            console.log('abril');
         }
 
         if (campoMinado.cells[row][column].value === -1)
@@ -34,53 +39,66 @@ class Cell {
             cell.style.background = "black"
         else
             cell.style.background = "rgb(36, 150, 241)";
+
     }
 
     static closeCell(row, column, campoMinado, cell) {
+        if (!cell)
+            cell = document.getElementById(`${row}-${column}`)
+
         cell.style.background = "#999999";
 
-        if (campoMinado.cells[linha][coluna].valor !== 0) {
-            const image = document.getElementById(`${row}-${column}`);
-            image.style.visibility = "hidden";
+
+        if (campoMinado.cells[row][column].value !== 0) {
+            const cell = document.getElementById(`${row}-${column}`);
+            cell.innerHTML = ''
         }
     }
 
     static checkCell(row, column, campoMinado, cell) {
-        console.log(campoMinado.cells[row][column].state)
-        console.log(row, column, campoMinado.cells[row][column]);
+
 
         if (!campoMinado.cells[row][column].state) {
             Cell.openCell(row, column, campoMinado, cell)
-
             campoMinado.cells[row][column].state = true
+            campoMinado.totalCellsNoBomb--
 
 
             if (campoMinado.cells[row][column].value === 0) {
                 const cellNeighborhood = [
                     //0    |   1
-                    [row + 1, column - 1], //0
-                    [row, column - 1], //1
-                    [row - 1, column - 1], //2
-                    [row - 1, column], //3
-                    [row - 1, column + 1], //4
+                    [row + 1, column - 1],
+                    [row, column - 1],
+                    [row - 1, column - 1],
+                    [row - 1, column],
+                    [row - 1, column + 1],
                     [row, column + 1], //5
-                    [row + 1, column + 1], //6
-                    [row + 1, column] //7
+                    [row + 1, column + 1],
+                    [row + 1, column]
                 ]
 
-                for (let k = 0; k < 8; k++) {
-                    if (((cellNeighborhood[k][0] >= 0) && (cellNeighborhood[k][1] >= 0)) &&
-                        ((cellNeighborhood[k][0] < sizeRow) && (cellNeighborhood[k][1] < sizeColumn)))
-                        checkCell(cellNeighborhood[k, 0], cellNeighborhood[k, 1])
+
+                for (let i = 0; i < 8; i++) {
+                    if (((cellNeighborhood[i][0] >= 0) && (cellNeighborhood[i][1] >= 0)) &&
+                        ((cellNeighborhood[i][0] < campoMinado.sizeRow) && (cellNeighborhood[i][1] < campoMinado.sizeColumn))) {
+                        const newCell = document.getElementById(`${cellNeighborhood[i][0]}-${cellNeighborhood[i][1]}`)
+                        Cell.checkCell(cellNeighborhood[i][0], cellNeighborhood[i][1], campoMinado, newCell)
+                    }
 
                 }
             }
 
             if (campoMinado.cells[row][column].value === -1) {
-                // gameEnded = true
-                // stopTimer()
+                gameEnded = true
+                stopTimer()
             }
 
         }
+
+        if ((campoMinado.totalCellsNoBomb === 0) && campoMinado.cells[row][column].value !== -1 && !gameEnded) {
+            gameEnded = true;
+            stopTimer()
+        }
+
     }
 }

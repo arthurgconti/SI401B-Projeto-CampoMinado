@@ -7,19 +7,19 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
     // #region validação do campo
     if (sizeRow > MAXROWSIZE || sizeColumn > MAXCOLUMNSIZE) {
         alert('Tamanho máximo do campo excedido')
-        return false
+        return null
     }
 
 
     if (sizeRow < MINROWSIZE || sizeColumn < MINCOLUMNSIZE) {
         alert('Tamanho menor que o mínimo do campo permitido')
-        return false
+        return null
     }
 
 
     if (bombsQuantity > (sizeRow * sizeColumn)) {
         alert('Quantidade máxima de bombas excedido')
-        return false
+        return null
     }
     // #endregion
 
@@ -33,7 +33,7 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
 
     //TODO criação das células
 
-    const campoMinado = new CampoMinado()
+    const campoMinado = new CampoMinado(sizeRow, sizeColumn, ((sizeRow * sizeColumn) - bombsQuantity))
 
     for (let i = 0; i < sizeRow; i++) {
         campoMinado.cells[i] = []
@@ -123,6 +123,6 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
     campo.append(table)
     // #endregion
 
-    return true
+    return campoMinado
 
 }
