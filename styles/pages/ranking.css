@@ -1,209 +1,165 @@
 body{
-    display: flex;
-    background: #C4C4C4;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .container
+  display: flex;
+  background: #C4C4C4;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container
 {
-    background-color: #fff;
-    position: relative;
+  background-color: #fff;
+  position: relative;
+  width: 60vw;
+  height: 80vh;
+  display: flex;
+  border-radius: 25px; 
+}
+.ctn1
+{
+    background-color: #D9E0E6;
     width: 60vw;
     height: 80vh;
     display: flex;
-    border-radius: 25px; 
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 25px 0 0 25px;
+    padding: 12px;
 }
-  .ctn1
-  {
-      background-color: #D9E0E6;
-      width: 60vw;
-      height: 80vh;
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      justify-content: flex-start;
-      border-radius: 25px 0 0 25px;
-      padding: 12px;
-  }
-  .ctn2
-  {
-      background-color: #484B4D;
-      flex: 1;
-      width: 60vw;
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 0px 25px 25px 0px;
-      padding: 12px;
-  }
-  .box0{
-      display: grid;
-      grid-template-columns: 10px 100px;
-  }
-  .logo{
-    margin-right: auto;
-    margin-left: 0;
-    border-radius: 4px;
-    padding: 5px;
-    width: 7vw;
+
+.ctn2
+{
+    background-color: #484B4D;
+    flex: 1;
+    width: 60vw;
+    height: 80vh;
     display: flex;
-  }
-  .box1{
-      text-align: center;
-      position: relative;
-      padding-top:30px;
-      padding-left: 80px;
-      width: 179px;
-      height: 108px;
-  }
-  .ctn2-1{
-    position: relative;
-    width: 300px;
-    height: 170px;
-    right:-40px;
-    top: -155px;
-    background: #FFFFFF;
-    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px 25px 25px 0px;
+    padding: 12px;
+}
+/* Metade Direita*/
+/*seta*/
+.font-size-fa{
+font-size: 1.2rem;
+}
+.seta {
+display:flex;
+justify-content:center;
+align-items:center;
+width: 100%;
+height: 100%;
+margin-left: auto;
+margin-right: auto
+}
 
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-  }
-  .ctn2-1 h3{
-    text-align: center;
-  }
-  .text1{
-    position: relative;
-    width: 320px;
-    left: 20px;
-    margin-top: 20px;
+.seta>#back {
+margin:0px;
+transition: 0.2s color ease-in-out;
+}
 
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-   
+.seta #back:link,.seta #back:visited{
+color:rgb(0, 0, 0);
+}
+
+.seta #back:hover{
+color:#000;
+}
+.seta > i{
+font-size:50px;
+}
+.logo{
+  margin-right: auto;
+  margin-left: 0;
+  border-radius: 4px;
+  padding: 5px;
+  width: 7vw;
+  display: flex;
 }
 
 
-.ctn2-2{
-    position: relative;
-    width: 300px;
-    height: 170px;
-    right:-40px;
-    top: -100px;
-    background: #FFFFFF;
-    border-radius: 15px;
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-   
-}
-.ctn2-2 h3{
+.h1{
+  position: absolute;
+  width: 179px;
+  height: 108px;
+  left: 130px;
+  top: 47px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 54px;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
-.text2{
-    position: relative;
-    width: 320px;
-    left: 20px;
-    margin-top: 20px;
+.caixa1{
+  position: absolute;
+  width: 320px;
+  height: 100px;
+  left: 50px;
+  top: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    
-}
-.ctn2-3{
-    position: relative;
-    width: 300px;
-    height: 170px;
-    right:-40px;
-    top: -50px;
-    background: #FFFFFF;
-    border-radius: 15px;
 
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
+
+  font-family: Catamaran;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 36px;
   
 }
-.ctn2-3 h3{
-  text-align: center;
-}
-.text3{
-    position: relative;
-    width: 320px;
-    left: 20px;
-    margin-top: 20px;
 
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    
-}
-  
-  .colocacao{
-    position: relative;
-    width: 320px;
-    height: 201.53px;
-    left: 1px;
-    top: 30px;
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 170px;
-  }
-  .h1{
-    position: absolute;
-    width: 179px;
-    height: 108px;
-    left: 140px;
-    top: 47px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 54px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-  }
-  .caixa1{
-    position: absolute;
-    width: 320px;
-    height: 201.53px;
-    left: 50px;
-    top: 250px;
-
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 36px;
-}
 .caixa2{
-    position: absolute;
-    width: 320px;
-    height: 201.53px;
-    left: 50px;
-    top: 360px;
+  position: absolute;
+  width: 320px;
+  height: 100px;
+  left: 50px;
+  top: 360px;
 
-    font-family: Catamaran;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 22px;
-    line-height: 36px;
+  font-family: Catamaran;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 36px;
+}
+
+
+/*input tamanho do tabuleiro*/
+#dimensoes {
+flex-direction: row;
+align-items: center;
+justify-content: center;
+}
+
+#dimensoes>input {
+width: 30px;
+height: 30px;
+border-radius: 15px;
+}
+input { 
+text-align: center; 
+}
+/*metade esquerda*/
+
+.rank {
+
+min-width: 300px; 
+
+
+
+font-family: Catamaran;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 36px;
+color: #FFFFFF;  
+}
+table, th, td {
+border: none;
+text-align: center;
+padding: 6px;
 }
