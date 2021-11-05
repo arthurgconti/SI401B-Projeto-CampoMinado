@@ -23,6 +23,11 @@ class CampoMinado {
         }, 5000)
     }
 
+    finishGame(result='Vitoria',score=0){
+        alert(`Jogo encerrado\nSua pontuação: ${score}\nVocê ${result} a partida!`)
+ 
+    }
+
 
 
 }

@@ -91,6 +91,7 @@ class Cell {
             if (campoMinado.cells[row][column].value === -1) {
                 gameEnded = true
                 stopTimer()
+                campoMinado.finishGame('Perdeu')
             }
 
         }
@@ -98,6 +99,7 @@ class Cell {
         if ((campoMinado.totalCellsNoBomb === 0) && campoMinado.cells[row][column].value !== -1 && !gameEnded) {
             gameEnded = true;
             stopTimer()
+            campoMinado.finishGame('Venceu')
         }
 
     }
