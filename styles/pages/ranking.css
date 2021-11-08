@@ -130,21 +130,7 @@ body{
 }
 
 
-/*input tamanho do tabuleiro*/
-#dimensoes {
-flex-direction: row;
-align-items: center;
-justify-content: center;
-}
 
-#dimensoes>input {
-width: 30px;
-height: 30px;
-border-radius: 15px;
-}
-input { 
-text-align: center; 
-}
 /*metade esquerda*/
 
 .rank {
