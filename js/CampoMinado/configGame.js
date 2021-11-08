@@ -18,7 +18,6 @@ function loadGame() {
         timer = timerClassico
     else if (gameMode.value === GAMEMODES.rivotril) {
         timer = timerRivotril
-        document.getElementById('tempo').innerText = '02:00'
     } else {
         alert('Selecione um modo de jogo')
         return
@@ -38,7 +37,7 @@ function loadGame() {
         return
 
     const campo = generateField(dimensionX.value, dimensionY.value, bombs.value, timer, gameMode.value)
-
+    
     if (campo) {
         startingButton.setAttribute('disabled', true)
         dimensionX.setAttribute('disabled', true)
@@ -47,6 +46,4 @@ function loadGame() {
         gameMode.setAttribute('disabled', true)
         document.getElementById('cheat').addEventListener('click', campo.cheatFunction.bind(event, campo))
     }
-
-
 }

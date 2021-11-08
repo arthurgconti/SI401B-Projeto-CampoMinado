@@ -28,8 +28,8 @@ class CampoMinado {
     }
 
     finishGame(result='Vitoria'){
-        alert(`Jogo encerrado\nVocê ${result} a partida!\nModo de jogo: ${this.gamemode}\nSua pontuação: ${this.score}
-        Células restantes: ${this.cellRemain}`)
+        alert(`Jogo encerrado\nVocê ${result} a partida!\nModo de jogo: ${this.gamemode}\nSua pontuação: ${this.score}\nCélulas restantes: ${this.totalCellsNoBomb-this.openCells}`)
+        
     }
 
 

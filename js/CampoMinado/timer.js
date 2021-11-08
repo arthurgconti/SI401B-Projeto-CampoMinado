@@ -1,11 +1,11 @@
 var seconds
 var minutes
 var gamemodeTimer
-document.getElementById('tempo').innerText = '00:00'
 
 //DONE startTimer on Click
 function timerClassico() {
     if (!gameStarted) {
+        document.getElementById('tempo').innerText = '00:00'
         gameStarted = true
         gamemodeTimer = setInterval(() => {
             const showTimer = document.getElementById('tempo')
@@ -30,6 +30,7 @@ function timerClassico() {
 
 function timerRivotril() {
     if (!gameStarted) {
+        document.getElementById('tempo').innerText = '02:00'
         gameStarted = true
         gamemodeTimer = setInterval(() => {
 

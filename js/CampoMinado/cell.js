@@ -17,6 +17,11 @@ class Cell {
         this.state = state
     }
 
+    static handleRemaingCells(remainingCells){
+        const splittedCellsRemaining = cellsRemainingElement.innerText.split('/')
+        cellsRemainingElement.innerText=`${splittedCellsRemaining[0]}/${remainingCells}`
+    }
+
     cellClick(id, campoMinado, cell) {
         if (!gameEnded) {
             const idCell = id.split('-')
@@ -66,10 +71,12 @@ class Cell {
         if (!campoMinado.cells[row][column].state) {
             Cell.openCell(row, column, campoMinado, cell)
             campoMinado.cells[row][column].state = true
-            campoMinado.totalCellsNoBomb--
+            campoMinado.cellRemain--
             
             campoMinado.openCells++
-           
+            Cell.handleRemaingCells(campoMinado.openCells)
+
+         
 
             if (campoMinado.cells[row][column].value === 0) {
                 const cellNeighborhood = [
