@@ -1,4 +1,3 @@
-
 class Cell {
 
     /**
@@ -17,9 +16,9 @@ class Cell {
         this.state = state
     }
 
-    static handleRemaingCells(remainingCells){
+    static handleRemaingCells(remainingCells) {
         const splittedCellsRemaining = cellsRemainingElement.innerText.split('/')
-        cellsRemainingElement.innerText=`${splittedCellsRemaining[0]}/${remainingCells}`
+        cellsRemainingElement.innerText = `${splittedCellsRemaining[0]}/${remainingCells}`
     }
 
     cellClick(id, campoMinado, cell) {
@@ -31,24 +30,22 @@ class Cell {
             alert("Jogo já finalizado")
     }
 
-    static openCell(row, column, campoMinado, cell) {
-        if (!cell)
-            cell = document.getElementById(`${row}-${column}`)
+    static openCell(row, column, campoMinado) {
+        const cell = document.getElementById(`${row}-${column}`)
+
 
         if (campoMinado.cells[row][column].value > 0) {
             cell.innerHTML = campoMinado.cells[row][column].value
         }
 
-        if (campoMinado.cells[row][column].value === -1){
+        if (campoMinado.cells[row][column].value === -1) {
             cell.style.background = "red"
-        }
-        else if (campoMinado.cells[row][column].value === 0){
+        } else if (campoMinado.cells[row][column].value === 0) {
             cell.style.background = "black"
-            
-        }
-        else{
+
+        } else {
             cell.style.background = "rgb(36, 150, 241)";
-            
+
         }
     }
 
@@ -69,14 +66,14 @@ class Cell {
 
 
         if (!campoMinado.cells[row][column].state) {
-            Cell.openCell(row, column, campoMinado, cell)
+            Cell.openCell(row, column, campoMinado)
             campoMinado.cells[row][column].state = true
             campoMinado.cellRemain--
-            
+
             campoMinado.openCells++
             Cell.handleRemaingCells(campoMinado.openCells)
 
-         
+
 
             if (campoMinado.cells[row][column].value === 0) {
                 const cellNeighborhood = [
@@ -91,38 +88,36 @@ class Cell {
                     [row + 1, column]
                 ]
 
-               
+
 
                 for (let i = 0; i < 8; i++) {
                     if (((cellNeighborhood[i][0] >= 0) && (cellNeighborhood[i][1] >= 0)) &&
                         ((cellNeighborhood[i][0] < campoMinado.sizeRow) && (cellNeighborhood[i][1] < campoMinado.sizeColumn))) {
                         const newCell = document.getElementById(`${cellNeighborhood[i][0]}-${cellNeighborhood[i][1]}`)
                         Cell.checkCell(cellNeighborhood[i][0], cellNeighborhood[i][1], campoMinado, newCell)
-                        
+
                     }
 
-                    
+
 
                 }
                 addScore(campoMinado)
-
-                campoMinado.cellRemain--
             }
 
             if (campoMinado.cells[row][column].value === -1) {
                 gameEnded = true;
                 gameOver = true;
                 stopTimer()
-                campoMinado.finishGame('perdeu',scoreFinal(campoMinado))
+                campoMinado.finishGame('perdeu', scoreFinal(campoMinado))
             }
 
         }
 
-        if ((campoMinado.totalCellsNoBomb === 0) && campoMinado.cells[row][column].value !== -1 && !gameEnded) {
+        if ((campoMinado.cellRemain === 0) && campoMinado.cells[row][column].value !== -1 && !gameEnded) {
             gameEnded = true;
             gameWin = true;
             stopTimer()
-            campoMinado.finishGame('venceu',scoreFinal(campoMinado))
+            campoMinado.finishGame('venceu', scoreFinal(campoMinado))
         }
 
     }
