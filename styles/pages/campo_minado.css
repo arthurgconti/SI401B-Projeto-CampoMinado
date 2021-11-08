@@ -93,7 +93,7 @@ a:hover {
     height: 100%;
 }
 
-.tempo {
+.tempo, .cells {
     color: #000;
     display: flex;
     justify-content: center;
@@ -102,7 +102,12 @@ a:hover {
     font-family: 'Amiko', sans-serif;
 }
 
-#tempo{
+#container-dados-partida {
+    display: flex;
+    flex-direction: row;
+}
+
+#tempo, #cellsRemaining {
     font-weight: 600;
 }
 
@@ -124,19 +129,15 @@ table {
     height: 100%;
 }
 
-
 table tr {
     height: 25px;
-    
 }
-
 
 table tr td {
     border: 1px solid #000;
     border-collapse: collapse;
     width: 48px;
-    background:grey;
-  
+    background: grey;
 }
 
 /*aside*/

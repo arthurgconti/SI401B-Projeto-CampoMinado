@@ -17,7 +17,7 @@
     <script src="../js/CampoMinado/cell.js" defer></script>
     <script src="../js/CampoMinado/mainField.js" defer></script>
     <script src="../js/CampoMinado/score.js" defer></script>
-    
+
     <!-- Script para importação do kit font-awesome, que serve para utilizar-mos os ícones do font-awesome -->
     <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
 </head>
@@ -30,14 +30,20 @@
                 <header>
                     <img src="../assets/G7_2.png" alt="ícone bomba com g7 escrito dentro">
                     <a href="./perfil.html"><i class="fas fa-user"></i></a>
-                    <a id = "cheat" href="#"><i class="fas fa-bug"></i></a>
+                    <a id="cheat" href="#"><i class="fas fa-bug"></i></a>
                     <a href="./ranking.html"><i class="fas fa-trophy"></i></a>
                     <a href="./inicial.html"><i class="fas fa-power-off"></i></a>
                 </header>
                 <div class="container-campo">
-                    <div class="tempo">
-                        <p>Tempo:&ThickSpace;</p>
-                        <p id="tempo">00:00</p>
+                    <div id="container-dados-partida">
+                        <div class="tempo">
+                            <p>Tempo:&ThickSpace;</p>
+                            <p id="tempo"></p>
+                        </div>
+                        <div class="cells">
+                            <p>Células Restantes:&ThickSpace;</p>
+                            <p id="cellsRemaining"></p>
+                        </div>
                     </div>
                     <div id="campo">
                     </div>
