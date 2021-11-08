@@ -10,7 +10,8 @@ function addScore(campoMinado) {
 }
 
 
-function checkScore(campoMinado) {
+
+function scoreFinal(campoMinado) {
 
     if (gameMode.value == GAMEMODES.classico) {
 
@@ -48,12 +49,6 @@ function checkScore(campoMinado) {
             campoMinado.score = Math.floor((campoMinado.score * 0.5) / campoMinado.openCells);
         }
     }
-
-    return campoMinado.score
-}
-
-
-function scoreFinal(campoMinado) {
 
     if (campoMinado.sizeRow <= 14 && campoMinado.sizeColumn <= 14) {
         campoMinado.score = Math.floor(campoMinado.score * 1.2)
