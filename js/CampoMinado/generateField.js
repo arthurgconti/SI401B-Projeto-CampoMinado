@@ -1,4 +1,4 @@
-function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
+function generateField(sizeRow, sizeColumn, bombsQuantity, timer, gamemode) {
 
     const campo = document.getElementById('campo')
     const table = document.createElement('table')
@@ -33,7 +33,10 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
 
     //TODO criação das células
 
-    const campoMinado = new CampoMinado(sizeRow, sizeColumn, ((sizeRow * sizeColumn) - bombsQuantity),0,((sizeRow * sizeColumn) - bombsQuantity),0)
+    const campoMinado = new CampoMinado(sizeRow, sizeColumn, ((sizeRow * sizeColumn) - bombsQuantity),
+        0, ((sizeRow * sizeColumn) - bombsQuantity), 0,
+        gamemode === GAMEMODES.classico ? GAMEMODES.classico : GAMEMODES.rivotril)
+
 
     for (let i = 0; i < sizeRow; i++) {
         campoMinado.cells[i] = []

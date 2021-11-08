@@ -37,7 +37,7 @@ function loadGame() {
     if (timer === null)
         return
 
-    const campo = generateField(dimensionX.value, dimensionY.value, bombs.value, timer)
+    const campo = generateField(dimensionX.value, dimensionY.value, bombs.value, timer, gameMode.value)
 
     if (campo) {
         startingButton.setAttribute('disabled', true)

@@ -99,8 +99,7 @@ class Cell {
                 }
                 addScore(campoMinado)
 
-                campoMinado.cellRemain = campoMinado.totalCellsNoBomb - campoMinado.openCells
-              
+                campoMinado.cellRemain--
             }
 
             if (campoMinado.cells[row][column].value === -1) {
