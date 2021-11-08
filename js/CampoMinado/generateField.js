@@ -33,7 +33,7 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer) {
 
     //TODO criação das células
 
-    const campoMinado = new CampoMinado(sizeRow, sizeColumn, ((sizeRow * sizeColumn) - bombsQuantity))
+    const campoMinado = new CampoMinado(sizeRow, sizeColumn, ((sizeRow * sizeColumn) - bombsQuantity),0,((sizeRow * sizeColumn) - bombsQuantity),0)
 
     for (let i = 0; i < sizeRow; i++) {
         campoMinado.cells[i] = []
