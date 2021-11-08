@@ -1,3 +1,5 @@
+var campoMinadoGenerated
+
 function configurationGame() {
     settingButton.setAttribute('disabled', true)
     startingButton.removeAttribute('disabled')
@@ -36,14 +38,33 @@ function loadGame() {
     if (timer === null)
         return
 
-    const campo = generateField(dimensionX.value, dimensionY.value, bombs.value, timer, gameMode.value)
-    
-    if (campo) {
+    campoMinadoGenerated = generateField(dimensionX.value, dimensionY.value, bombs.value, timer, gameMode.value)
+
+    if (campoMinadoGenerated) {
         startingButton.setAttribute('disabled', true)
         dimensionX.setAttribute('disabled', true)
         dimensionY.setAttribute('disabled', true)
         bombs.setAttribute('disabled', true)
         gameMode.setAttribute('disabled', true)
-        document.getElementById('cheat').addEventListener('click', campo.cheatFunction.bind(event, campo))
+        document.getElementById('cheat').addEventListener('click', campoMinadoGenerated.cheatFunction)
     }
+}
+
+function unloadGame() {
+    settingButton.innerText = 'Configurar'
+    settingButton.removeEventListener('click', unloadGame)
+    settingButton.addEventListener('click', configurationGame)
+    dimensionX.value = ''
+    dimensionY.value = ''
+    bombs.value = ''
+    gameMode.value = 'default'
+    document.getElementById('tempo').innerText = ''
+    document.getElementById('cellsRemaining').innerText = ''
+    document.getElementById('cheat').removeEventListener('click', campoMinadoGenerated.cheatFunction)
+    campoMinadoGenerated = {}
+    gameStarted = false
+    gameEnded = false
+    gameOver = false
+    gameWin = false
+    document.getElementById('campo').removeChild(document.getElementsByTagName('table')[0])
 }

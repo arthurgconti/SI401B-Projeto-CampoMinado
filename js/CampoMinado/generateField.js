@@ -33,10 +33,13 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer, gamemode) {
 
     //TODO criação das células
 
+    
+
     const campoMinado = new CampoMinado(sizeRow, sizeColumn, ((sizeRow * sizeColumn) - bombsQuantity),
         0, ((sizeRow * sizeColumn) - bombsQuantity), 0,
         gamemode === GAMEMODES.classico ? GAMEMODES.classico : GAMEMODES.rivotril)
-    
+
+   
     cellsRemainingElement.innerText=`${campoMinado.cellRemain}/${campoMinado.openCells}`
     
 
