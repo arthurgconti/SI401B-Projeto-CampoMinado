@@ -9,63 +9,120 @@
     <link rel="stylesheet" href="../styles/pages/ranking.css">
     <title>Ranking</title>
 </head>
-
+<body>
 <div class="container">
     <div class="ctn1">
-        <div id="logo">
+       <header> <div id="logo">
             <img src=https://media.discordapp.net/attachments/875488630112669717/879742285976322059/G7_3.png width="80" alt="logo do grupo">
         </div>
+        <div class="seta">
+            <a href="./campo_minado.html" id="back">
+                <i class="fas fa-arrow-left font-size-fa"></i>
+            </a>
+        </div>
+    </header>
         <div class="h1">
             <p>Ranking Global</p>
         </div>
         <div class="caixa1">
             <label for="tabuleiro">Tamanho do tabuleiro:</label>
-            <input type="text" id="tabuleiro" name="tamtableiro" />
+            
+                <input type="text" name="tamanho" id="tabuleiro" placeholder="10x10">
+            
 
         </div>
         <div class="caixa2">
-            <label for="tempo">Tempo da partida</label>
-            <input type="time" id="tempo" name="tempopartida" />
+            <label for="tempo">Tempo da partida:</label>
+            <input type="text" id="tempo" name="tempopartida" placeholder="05:47">
         </div>
 
-
-
+        
 
 
     </div>
     <div class="ctn2">
-        <div class="colocacao">
-            <p>1°</p>
-            <p>2°</p>
-            <p>3°</p>
-        </div>
-        <div class="ctn2-1">
-            <h3>USUARIO</h3>
-            <div class="text1">
-                <p>Bombas:</p>
-                <p>Modalidade:</p>
-                <p>Tempo restante:</p>
-            </div>
-        </div>
-        <div class="ctn2-2">
-            <h3>USUARIO</h3>
-            <div class="text2">
-                <p>Bombas:</p>
-                <p>Modalidade:</p>
-                <p>Tempo restante:</p>
-            </div>
-        </div>
-        <div class="ctn2-3">
-            <h3>USUARIO</h3>
-            <div class="text3">
-                <p>Bombas:</p>
-                <p>Modalidade:</p>
-                <p>Tempo restante:</p>
-            </div>
-        </div>
+        <table class="rank">
+            <tr>
+              <th> </th>
+              <th>Usuário</th>
+              <th>Bombas</th>
+              <th>Tempo</th>
+              <th>Modalidade</th>
+            </tr>
+            <tr>
+                <th>1°</th>
+                <td>Cléber</td>
+                <td>10</td>
+                <td>3:00</td>
+                <td>Classica</td>
+            </tr>
+            <tr>
+                <th>2°</th>
+                <td>Cléber</td>
+                <td>10</td>
+                <td>3:40</td>
+                <td>Classica</td>
+            </tr>
+            <tr>
+                <th>3°</th>
+                <td>Clóvis</td>
+                <td>10</td>
+                <td>4:00</td>
+                <td>Rivotril</td>
+            </tr>
+            <tr>
+                <th>4°</th>
+                <td>Cléber</td>
+                <td>10</td>
+                <td>4:50</td>
+                <td>Rivotril</td>
+            </tr>
+            <tr>
+                <th>5°</th>
+                <td>Clóvis</td>
+                <td>10</td>
+                <td>5:00</td>
+                <td>Classica</td>
+            </tr>
+            <tr>
+                <th>6°</th>
+                <td>Clóvis</td>
+                <td>10</td>
+                <td>5:10</td>
+                <td>Classica</td>
+            </tr>
+            <tr>
+                <th>7°</th>
+                <td>Cléber</td>
+                <td>10</td>
+                <td>5:50</td>
+                <td>Rivotril</td>
+            </tr>
+            <tr>
+                <th>8°</th>
+                <td>Clóvis</td>
+                <td>10</td>
+                <td>6:00</td>
+                <td>Classica</td>
+            </tr>
+            <tr>
+                <th>9°</th>
+                <td>Cléber</td>
+                <td>10</td>
+                <td>6:30</td>
+                <td>Classica</td>
+            </tr>
+            <tr>
+                <th>10°</th>
+                <td>Cléber</td>
+                <td>10</td>
+                <td>7:00</td>
+                <td>Rivotril</td>
+            </tr>
+         </div>
     </div>
 
 </div>
-
+</body>
 
 </html>
