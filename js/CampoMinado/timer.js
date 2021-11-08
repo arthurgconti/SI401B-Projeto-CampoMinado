@@ -1,4 +1,5 @@
-var seconds = 0
+var seconds
+var minutes
 var gamemodeTimer
 document.getElementById('tempo').innerText = '00:00'
 
@@ -8,7 +9,6 @@ function timerClassico() {
         gameStarted = true
         gamemodeTimer = setInterval(() => {
             const showTimer = document.getElementById('tempo')
-            let minutes, seconds
 
 
             const newTime = showTimer.innerText.split(':')
@@ -34,7 +34,6 @@ function timerRivotril() {
         gamemodeTimer = setInterval(() => {
 
             const showTimer = document.getElementById('tempo')
-            let minutes, seconds
 
             const newTime = showTimer.innerText.split(':')
             const tempMinutes = parseInt(newTime[0]) - 1

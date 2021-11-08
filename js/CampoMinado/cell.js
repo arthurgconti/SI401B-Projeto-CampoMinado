@@ -1,3 +1,4 @@
+
 class Cell {
 
     /**
@@ -33,13 +34,17 @@ class Cell {
             cell.innerHTML = campoMinado.cells[row][column].value
         }
 
-        if (campoMinado.cells[row][column].value === -1)
+        if (campoMinado.cells[row][column].value === -1){
             cell.style.background = "red"
-        else if (campoMinado.cells[row][column].value === 0)
+        }
+        else if (campoMinado.cells[row][column].value === 0){
             cell.style.background = "black"
-        else
+            
+        }
+        else{
             cell.style.background = "rgb(36, 150, 241)";
-
+            
+        }
     }
 
     static closeCell(row, column, campoMinado, cell) {
@@ -62,7 +67,9 @@ class Cell {
             Cell.openCell(row, column, campoMinado, cell)
             campoMinado.cells[row][column].state = true
             campoMinado.totalCellsNoBomb--
-
+            
+            openCells++
+           
 
             if (campoMinado.cells[row][column].value === 0) {
                 const cellNeighborhood = [
@@ -77,29 +84,39 @@ class Cell {
                     [row + 1, column]
                 ]
 
+               
 
                 for (let i = 0; i < 8; i++) {
                     if (((cellNeighborhood[i][0] >= 0) && (cellNeighborhood[i][1] >= 0)) &&
                         ((cellNeighborhood[i][0] < campoMinado.sizeRow) && (cellNeighborhood[i][1] < campoMinado.sizeColumn))) {
                         const newCell = document.getElementById(`${cellNeighborhood[i][0]}-${cellNeighborhood[i][1]}`)
                         Cell.checkCell(cellNeighborhood[i][0], cellNeighborhood[i][1], campoMinado, newCell)
+                        
                     }
 
+                    
+
                 }
+                addScore()
+
+                cellRemain = totalCells - openCells
+              
             }
 
             if (campoMinado.cells[row][column].value === -1) {
-                gameEnded = true
+                gameEnded = true;
+                gameOver = true;
                 stopTimer()
-                campoMinado.finishGame('Perdeu')
+                campoMinado.finishGame('perdeu',scoreFinal())
             }
 
         }
 
         if ((campoMinado.totalCellsNoBomb === 0) && campoMinado.cells[row][column].value !== -1 && !gameEnded) {
             gameEnded = true;
+            gameWin = true;
             stopTimer()
-            campoMinado.finishGame('Venceu')
+            campoMinado.finishGame('venceu',scoreFinal())
         }
 
     }

@@ -6,6 +6,8 @@ const bombs = document.getElementById("bombas")
 const gameMode = document.getElementById("modalidade")
 var gameStarted = false
 var gameEnded = false
+var gameOver = false
+var gameWin = false
 
 
 startingButton.setAttribute('disabled', true)

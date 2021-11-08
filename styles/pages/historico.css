@@ -1,4 +1,4 @@
-body {
+body{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -174,7 +174,40 @@ p{
 
 }
 
+a:link{
+    text-decoration: none;
+}
 
+.seta {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width: 100%;
+    height: 100%;
+    margin-top: 7em;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.seta>#back {
+    margin:0px;
+    transition: 0.2s color ease-in-out;
+}
+
+.seta #back:link,.seta #back:visited{
+    color:#fff;
+}
+
+.seta #back:hover{
+    color:#000;
+}
+.seta > i{
+    font-size:50px;
+}
+
+.font-size-fa{
+    font-size: 1.2rem;
+}
 
 
 
