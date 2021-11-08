@@ -1,81 +1,65 @@
-var score = 0;
-var openCells = 0; //celular abertas com sucesso pelo jogador
-var sizeX= parseInt(dimensionX.value)
-var sizeY = parseInt(dimensionY.value)
-var bomb = parseInt(bombs.value)
-var totalCells = (sizeX * sizeY) - bomb
-var cellRemain //células restantes
+function addScore(campoMinado) {
 
-function addScore(){
-
-    if(gameMode.value == GAMEMODES.classico){ 
-        score = score + 12 //adiciona pontos no modo classico durante o jogo
+    if (gameMode.value == GAMEMODES.classico) {
+        campoMinado.score += 12 //adiciona pontos no modo classico durante o jogo
+    } else
+    if (gameMode.value == GAMEMODES.rivotril) {
+        campoMinado.score += 20 //adiciona pontos no modo rivoltril durante o jogo
     }
-
-    else
-    if(gameMode.value == GAMEMODES.rivotril){
-        score = score + 20 //adiciona pontos no modo rivoltril durante o jogo
-    }
-    return score
+    return campoMinado.score
 }
 
 
-function checkScore(){
+function checkScore(campoMinado) {
 
-    if(gameMode.value == GAMEMODES.classico){ 
+    if (gameMode.value == GAMEMODES.classico) {
 
-        if(gameEnded==true){
+        if (gameEnded == true) {
 
-            if(gameWin==true){
-                score = score + 50 //vitória no modo classico
-            }
-            else
-            if(gameOver == true){ //derrota no modo clássico
-                if (cellRemain >= (0.6 *(sizeX * sizeY- bomb))){
-                    score = Math.floor(score * 0.7) 
-                }
-                else
-                if (cellRemain < (0.6 *(sizeX * sizeY - bomb))){
-                    score = Math.floor(score * 1.5)
+            if (gameWin == true) {
+                campoMinado.score += 50 //vitória no modo classico
+            } else
+            if (gameOver == true) { //derrota no modo clássico
+                if (cellRemain >= (0.6 * campoMinado.totalCellsNoBomb)) {
+                    campoMinado.score = Math.floor(campoMinado.score * 0.7)
+                } else
+                if (cellRemain < (0.6 * campoMinado.totalCellsNoBomb)) {
+                    campoMinado.score = Math.floor(campoMinado.score * 1.5)
                 }
             }
 
-            if(minutes > 1){
-                score = score - (minutes * (score * 0.12)) // a cada 60 segundos, perde 1,2% da pontuação
+            if (minutes > 1) {
+                campoMinado.score -= (minutes * (campoMinado.score * 0.12)) // a cada 60 segundos, perde 1,2% da pontuação
             }
         }
-    }
-    else
-    if(gameMode.value == GAMEMODES.rivotril){
-        if(gameEnded==true){
-            if(gameWin==true){
-                score = addScore() + 100 //vitoria no modo rivotril
-                if(minutes > 1){
+    } else
+    if (gameMode.value == GAMEMODES.rivotril) {
+        if (gameEnded == true) {
+            if (gameWin == true) {
+                campoMinado.score = addScore(campoMinado) + 100 //vitoria no modo rivotril
+                if (minutes > 1) {
                     seconds += 60
                     var extraScore = seconds * 0.1
-                    score = score + extraScore
+                    campoMinado.score += extraScore
                 }
             }
-        }
-        else
-        if (gameOver == true){ //derrota no modo rivoltril
-           score = Math.floor((score * 0.5) / openCells);
+        } else
+        if (gameOver == true) { //derrota no modo rivoltril
+            campoMinado.score = Math.floor((campoMinado.score * 0.5) / campoMinado.openCells);
         }
     }
 
-    return score
+    return campoMinado.score
 }
 
 
-function scoreFinal(){
+function scoreFinal(campoMinado) {
 
-    if(sizeX <= 14 && sizeY <= 14){
-        score = Math.floor(score * 1.2) 
-    }
-    else {
-        score = Math.floor(score * 1.6) //multiplicador final de pontos
+    if (campoMinado.sizeRow <= 14 && campoMinado.sizeColumn <= 14) {
+        campoMinado.score = Math.floor(campoMinado.score * 1.2)
+    } else {
+        campoMinado.score = Math.floor(campoMinado.score * 1.6) //multiplicador final de pontos
     }
 
-    return score
+    return campoMinado.score
 }
-  

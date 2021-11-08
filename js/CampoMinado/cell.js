@@ -68,7 +68,7 @@ class Cell {
             campoMinado.cells[row][column].state = true
             campoMinado.totalCellsNoBomb--
             
-            openCells++
+            campoMinado.openCells++
            
 
             if (campoMinado.cells[row][column].value === 0) {
@@ -97,17 +97,16 @@ class Cell {
                     
 
                 }
-                addScore()
+                addScore(campoMinado)
 
-                cellRemain = totalCells - openCells
-              
+                campoMinado.cellRemain--
             }
 
             if (campoMinado.cells[row][column].value === -1) {
                 gameEnded = true;
                 gameOver = true;
                 stopTimer()
-                campoMinado.finishGame('perdeu',scoreFinal())
+                campoMinado.finishGame('perdeu',scoreFinal(campoMinado))
             }
 
         }
@@ -116,7 +115,7 @@ class Cell {
             gameEnded = true;
             gameWin = true;
             stopTimer()
-            campoMinado.finishGame('venceu',scoreFinal())
+            campoMinado.finishGame('venceu',scoreFinal(campoMinado))
         }
 
     }
