@@ -79,6 +79,7 @@ a:hover {
     color: #000;
 }
 
+
 #principal header>img {
     width: 70px;
     height: 70px;
@@ -117,6 +118,41 @@ a:hover {
     align-items: center;
     width: 600px;
     height: 520px;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.container-cheat {
+    position: absolute;
+    bottom:1%;
+    left:1%;
+    z-index: 3;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 30px;
+}
+
+.container-cheat>#cheat{
+    margin: 0;
+    padding: 27px;
+}
+
+.container-cheat>#cheat>i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#cheat:link, #cheat:visited {
+    color: #000;
+}
+
+#cheat:hover {
+    color: red;
 }
 
 /*tabela*/

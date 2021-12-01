@@ -5,6 +5,10 @@ function configurationGame() {
     startingButton.removeAttribute('disabled')
     dimensionX.removeAttribute('disabled')
     dimensionY.removeAttribute('disabled')
+    dimensionY.setAttribute('readonly',true)
+    dimensionX.addEventListener('input', () => {
+        dimensionY.value = dimensionX.value
+    })
     bombs.removeAttribute('disabled')
     gameMode.removeAttribute('disabled')
     startingButton.removeAttribute('disabled')
@@ -47,6 +51,7 @@ function loadGame() {
         bombs.setAttribute('disabled', true)
         gameMode.setAttribute('disabled', true)
         document.getElementById('cheat').addEventListener('click', campoMinadoGenerated.cheatFunction)
+        divContainerCheat.classList.remove("hidden")
     }
 }
 
@@ -67,4 +72,5 @@ function unloadGame() {
     gameOver = false
     gameWin = false
     document.getElementById('campo').removeChild(document.getElementsByTagName('table')[0])
+    divContainerCheat.classList.add("hidden")
 }

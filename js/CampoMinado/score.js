@@ -21,10 +21,10 @@ function scoreFinal(campoMinado) {
                 campoMinado.score += 50 //vitória no modo classico
             } else
             if (gameOver == true) { //derrota no modo clássico
-                if (cellRemain >= (0.6 * campoMinado.totalCellsNoBomb)) {
+                if (campoMinado.cellRemain >= (0.6 * campoMinado.totalCellsNoBomb)) {
                     campoMinado.score = Math.floor(campoMinado.score * 0.7)
                 } else
-                if (cellRemain < (0.6 * campoMinado.totalCellsNoBomb)) {
+                if (campoMinado.cellRemain < (0.6 * campoMinado.totalCellsNoBomb)) {
                     campoMinado.score = Math.floor(campoMinado.score * 1.5)
                 }
             }

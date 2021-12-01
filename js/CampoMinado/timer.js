@@ -24,13 +24,12 @@ function timerClassico() {
             }
             showTimer.innerHTML = `${minutes}:${seconds}`
         }, 1000)
-        return true
     }
 }
 
 function timerRivotril() {
     if (!gameStarted) {
-        document.getElementById('tempo').innerText = '02:00'
+        document.getElementById('tempo').innerText = '01:00'
         gameStarted = true
         gamemodeTimer = setInterval(() => {
 
@@ -51,10 +50,13 @@ function timerRivotril() {
             if (parseInt(minutes) === 0 && parseInt(seconds) === 0) {
                 stopTimer()
                 alert('o tempo acabou')
-                return false
+                stopTimer()
+                gameEnded = true;
+                if (!gameOver)
+                    campoMinadoGenerated.finishGame('perdeu', scoreFinal(campoMinadoGenerated))
+                gameOver = true;
             }
-        }, 1000)
-        return true
+        }, 100)
     }
 }
 

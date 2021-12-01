@@ -5,6 +5,7 @@ const dimensionY = document.getElementById("dimensaoY")
 const bombs = document.getElementById("bombas")
 const gameMode = document.getElementById("modalidade")
 const cellsRemainingElement = document.getElementById("cellsRemaining")
+const divContainerCheat = document.getElementById("container-cheat-div")
 var gameStarted = false
 var gameEnded = false
 var gameOver = false

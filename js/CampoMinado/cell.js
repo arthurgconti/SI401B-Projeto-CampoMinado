@@ -64,7 +64,6 @@ class Cell {
 
     static checkCell(row, column, campoMinado, cell) {
 
-
         if (!campoMinado.cells[row][column].state) {
             Cell.openCell(row, column, campoMinado)
             campoMinado.cells[row][column].state = true
@@ -112,7 +111,6 @@ class Cell {
             }
 
         }
-
         if ((campoMinado.cellRemain === 0) && campoMinado.cells[row][column].value !== -1 && !gameEnded) {
             gameEnded = true;
             gameWin = true;
