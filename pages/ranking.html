@@ -24,7 +24,11 @@
         <div class="caixa1">
             <label for="tabuleiro">Tamanho do tabuleiro:</label>
             
-                <input type="text" name="tamanho" id="tabuleiro" placeholder="10x10">
+            <div id="dimensoes">
+                <input type="text"  id="dimensaoX" placeholder="10" maxlength="3">
+                X
+                <input type="text"  id="dimensaoY" placeholder="10" maxlength="3">
+            </div>
             
 
         </div>
@@ -32,17 +36,22 @@
             <label for="tempo">Tempo da partida:</label>
             <input type="text" id="tempo" name="tempopartida" placeholder="05:47">
         </div>
+
+        <div class="botao-busca">
+            <button id="buscar" type="button">Buscar</button>
+        </div>
         
         <div class="seta">
             <a href="./campo_minado.html" id="back">
                 <i class="fas fa-arrow-left font-size-fa"></i>
             </a>
         </div>
-        
+       
 
 
     </header>
     <div class="ctn2">
+        <!--parte de rank-->
         <table class="rank">
             <tr>
               <th> </th>
