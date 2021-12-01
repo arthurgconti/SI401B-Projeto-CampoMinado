@@ -51,7 +51,7 @@ function loadGame() {
 }
 
 function unloadGame() {
-    settingButton.innerText = 'Configurar'
+    settingButton.innerText = 'Novo Jogo'
     settingButton.removeEventListener('click', unloadGame)
     settingButton.addEventListener('click', configurationGame)
     dimensionX.value = ''

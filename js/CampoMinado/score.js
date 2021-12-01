@@ -32,6 +32,7 @@ function scoreFinal(campoMinado) {
             if (minutes > 1) {
                 campoMinado.score -= (minutes * (campoMinado.score * 0.12)) // a cada 60 segundos, perde 1,2% da pontuação
             }
+           
         }
     } else
     if (gameMode.value == GAMEMODES.rivotril) {
