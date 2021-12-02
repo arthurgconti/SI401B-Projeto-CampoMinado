@@ -20,7 +20,7 @@
             <img class="logo" src="../assets/G7_2.png" alt="Logo da equipe">
             <p class="acessotxt">Acesso</p>
 
-            <form action="./campo_minado.html" method="GET" class="formulario">
+            <form action="./campo_minado.php" method="POST" class="formulario">
 
                 <div class="acesso">
 
@@ -47,7 +47,7 @@
             </form>
 
             <div>
-                <a class="btcadastro" href="./cadastro1.html">Cadastre-se</a>
+                <a class="btcadastro" href="./cadastro1.php">Cadastre-se</a>
             </div>
 
         </div>

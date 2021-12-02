@@ -1,11 +1,11 @@
 <?php
 class Connection
 {
-    private static $DB_URL;
-    private static $DB_PORT;
-    private static $USER;
-    private static $PASSWORD;
-    private static $DATABASE;
+    private static $DB_URL = "";
+    private static $DB_PORT = "";
+    private static $USER = "";
+    private static $PASSWORD = "";
+    private static $DATABASE = "";
     private static $conn;
 
     public static function getConnection()

@@ -36,7 +36,7 @@
             <p id="title">Junte-se a nós</p>
             <p id="subtittle">Dados Gerais</p>
 
-            <form method="GET">
+            <form method="POST">
 
                 <div class="etapa-1 show-form">
                     <div class="cadastrar">
@@ -48,7 +48,7 @@
 
                         <div>
                             <label id="labelData">Data de Nascimento</label>
-                            <input placeholder="21/12/2001" id="data" type="date" class="info">
+                            <input id="data" type="date" class="info">
                         </div>
 
                         <div>

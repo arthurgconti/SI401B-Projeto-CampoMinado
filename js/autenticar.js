@@ -21,7 +21,7 @@ let validTelefone = false;
 nome.addEventListener("keyup", () => {
     if (nome.value.length < 6) {
         labelNome.setAttribute("style", "color: red");
-        labelNome.innerHTML = "Nome *Insira no mínimo 3 caracteres.";
+        labelNome.innerHTML = "Nome *Insira no mínimo 6 caracteres.";
         validNome = false;
     } else {
         labelNome.setAttribute("style", "color: green");
@@ -83,3 +83,4 @@ function cadastrar() {
         return false
     }
 }
+

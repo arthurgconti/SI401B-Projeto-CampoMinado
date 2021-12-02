@@ -31,7 +31,7 @@
             <p id="title">Junte-se a nós</p>
             <p id="subtittle">Dados do Jogador</p>
 
-            <form action="./inicial.html" method="GET" class="formulario">
+            <form action="./cadastro_processar.php" method="POST" class="formulario">
 
                 <div class="cadastrar">
 

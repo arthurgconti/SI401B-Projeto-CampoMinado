@@ -57,7 +57,7 @@ senha.addEventListener("keyup", () => {
 function cadastrar2(){
     if(validEmail && validUsuario && validSenha){
         alert("Cadastro Concluído");
-        window.location.replace("./inicial.html");
+        window.location.replace("./inicial.php");
     }
     else{
         alert("Tem campo faltando...");
