@@ -1,6 +1,7 @@
 var seconds
 var minutes
 var gamemodeTimer
+var totalTime = 0
 
 //DONE startTimer on Click
 function timerClassico() {
@@ -23,6 +24,7 @@ function timerClassico() {
                 seconds = tempSeconds < 10 ? `0${tempSeconds}` : tempSeconds
             }
             showTimer.innerHTML = `${minutes}:${seconds}`
+            totalTime++
         }, 1000)
     }
 }
@@ -56,6 +58,7 @@ function timerRivotril() {
                     campoMinadoGenerated.finishGame('perdeu', scoreFinal(campoMinadoGenerated))
                 gameOver = true;
             }
+            totalTime++
         }, 100)
     }
 }

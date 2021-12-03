@@ -1,5 +1,5 @@
 class CampoMinado {
-    constructor(sizeRow, sizeColumn, totalCellsNoBomb, openCells, cellRemain, score, gamemode) {
+    constructor(sizeRow, sizeColumn, totalCellsNoBomb, openCells, cellRemain, score, gamemode, numBomb) {
         this.cells = []
         this.noBomb = []
         this.sizeRow = parseInt(sizeRow)
@@ -9,6 +9,7 @@ class CampoMinado {
         this.cellRemain = cellRemain
         this.score = score
         this.gamemode = gamemode
+        this.numBomb = numBomb
     }
 
     cheatFunction() {
@@ -27,8 +28,9 @@ class CampoMinado {
         }, 3000)
     }
 
-    finishGame(result = 'Vitoria') {
+    finishGame(result = 'vitoria') {
         alert(`Jogo encerrado\nVocê ${result} a partida!\nModo de jogo: ${this.gamemode}\nSua pontuação: ${this.score}\nCélulas restantes: ${this.totalCellsNoBomb-this.openCells}`)
+        sendRegisterGame(campoMinadoGenerated, 1, totalTime, result === 'vitoria' ? 1 : 0)
         for (let i = 0; i < campoMinadoGenerated.sizeRow; i++)
             for (let j = 0; j < campoMinadoGenerated.sizeColumn; j++) {
                 Cell.openCell(i, j, campoMinadoGenerated)

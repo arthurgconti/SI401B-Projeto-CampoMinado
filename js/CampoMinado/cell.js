@@ -115,7 +115,7 @@ class Cell {
             gameEnded = true;
             gameWin = true;
             stopTimer()
-            campoMinado.finishGame('venceu', scoreFinal(campoMinado))
+            campoMinado.finishGame('vitoria', scoreFinal(campoMinado))
         }
 
     }

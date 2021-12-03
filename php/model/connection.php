@@ -39,22 +39,22 @@ class Connection
     function CreateTable()
     {
         $tableUsuario = "create table if not exists Usuario(
-            id_usuario int not null,
+            id_usuario int not null auto_increment,
             nome varchar(255) not null,
             data_nascimento date not null,
-            cpf char(12) not null,
+            cpf char(14) not null,
             telefone varchar(20),
             email varchar(255),
             username varchar(20) not null,
             senha varchar(255) not null,
-            authenticated_token varchar(255) not null,
+            authenticated_token varchar(255),
             nivel int,
             experiencia float,
             ranking varchar(50) not null,
             primary key (id_usuario)
             )";
         $tablePartida = "create table if not exists Partida(
-            id_partida int not null,
+            id_partida int not null auto_increment,
             cod_usuario int not null,
             dimensao_campo int not null,
             area_campo int,

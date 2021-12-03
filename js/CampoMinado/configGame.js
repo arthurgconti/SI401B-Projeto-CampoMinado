@@ -71,6 +71,7 @@ function unloadGame() {
     gameEnded = false
     gameOver = false
     gameWin = false
+    totalTime = 0
     document.getElementById('campo').removeChild(document.getElementsByTagName('table')[0])
     divContainerCheat.classList.add("hidden")
 }
