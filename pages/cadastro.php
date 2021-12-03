@@ -36,29 +36,29 @@
             <p id="title">Junte-se a nós</p>
             <p id="subtittle">Dados Gerais</p>
 
-            <form method="POST">
+            <form id="form-cadastro" action="../php/controller/cadastro_processar.php" method="POST">
 
                 <div class="etapa-1 show-form">
                     <div class="cadastrar">
 
                         <div>
                             <label id="labelNome">Nome</label>
-                            <input placeholder="Rafael Sobrenome" id="nome" type="text" class="info">
+                            <input placeholder="Rafael Sobrenome" id="nome" name="nome" type="text" class="info">
                         </div>
 
                         <div>
                             <label id="labelData">Data de Nascimento</label>
-                            <input id="data" type="date" class="info">
+                            <input id="data" name="data" type="date" class="info">
                         </div>
 
                         <div>
                             <label id="labelCPF">CPF</label>
-                            <input placeholder="111.111.111-11" id="cpf" type="text" class="info">
+                            <input placeholder="111.111.111-11" id="cpf" name="cpf" type="text" class="info">
                         </div>
 
                         <div>
                             <label id="labelTelefone">Telefone</label>
-                            <input placeholder="(19)99150-1195" id="telefone" type="text" class="info">
+                            <input placeholder="(19)99150-1195" id="telefone" name="telefone" type="text" class="info">
                         </div>
 
                     </div>
@@ -74,23 +74,23 @@
 
                         <div>
                             <label id="labelEmail">Email</label>
-                            <input placeholder="abc123@gmail.com" id="email" type="email" class="info">
+                            <input placeholder="abc123@gmail.com" id="email" name="email" type="email" class="info">
                         </div>
 
                         <div>
                             <label id="labelUsuario">Usuário</label>
-                            <input placeholder="usuario" id="usuario" type="text" class="info">
+                            <input placeholder="usuario" id="usuario" name="usuario" type="text" class="info">
                         </div>
 
                         <div>
                             <label id="labelSenha">Senha</label>
-                            <input placeholder="senha" id="senha" type="password" class="info">
+                            <input placeholder="senha" id="senha" name="senha" type="password" class="info">
                         </div>
 
                     </div>
 
                     <div class="btacesso">
-                        <a onclick="cadastrar2()" class="btacessoE">Finalizar Cadastro</a>
+                        <button type="submit" class="btacessoE">Finalizar Cadastro</button>
                     </div>
                 </div>
 

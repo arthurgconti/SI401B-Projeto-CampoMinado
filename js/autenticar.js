@@ -76,7 +76,7 @@ telefone.addEventListener("keyup", () => {
 
 function cadastrar() {
     if (validNome && validData && validCPF && validTelefone) {
-        alert("Prosseguindo");
+        // alert("Prosseguindo");
         return true
     } else {
         alert("Tem campo faltando...");
