@@ -21,7 +21,6 @@
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
 
-    var_dump($nome, $data, $cpf, $telefone, $email, $usuario, $senha);
 
     if (UsuarioDAO::getInstance()->create($nome, $data, $cpf, $telefone, $email, $usuario, $senha)) {
     ?>
