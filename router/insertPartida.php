@@ -2,16 +2,25 @@
 
 require_once('../php/model/partidaDAO.php');
 
-$codUser = (isset($_POST['cod_usuario'])) ? $_POST['cod_usuario'] : 1;
-$dimensaoCampo = (isset($_POST['dimensao_campo'])) ? $_POST['dimensao_campo'] : 0;
-$areaCampo = (isset($_POST['area_campo'])) ? $_POST['area_campo'] : 0;
-$numeroBombas = (isset($_POST['numero_bombas'])) ? $_POST['numero_bombas'] : 0;
-$modalidade = (isset($_POST['modalidade'])) ? $_POST['modalidade'] : "nenhuma";
-$tempoGasto = (isset($_POST['tempo_gasto'])) ? $_POST['tempo_gasto'] : 0;
-$resultado = (isset($_POST['resultado'])) ? $_POST['resultado'] : 0;
-$pontuacao = (isset($_POST['pontuacao'])) ? $_POST['pontuacao'] : 0;
+if (
+    isset($_POST['cod_usuario']) && isset($_POST['dimensao_campo'])
+    && isset($_POST['area_campo']) && isset($_POST['numero_bombas'])
+    && isset($_POST['modalidade']) && isset($_POST['tempo_gasto'])
+    && isset($_POST['resultado']) && isset($_POST['pontuacao'])
+) {
 
-PartidaDAO::getInstance()->create($codUser, $dimensaoCampo, $areaCampo, $numeroBombas, $modalidade, $tempoGasto, $resultado, $pontuacao);
+    $codUser =  $_POST['cod_usuario'];
+    $dimensaoCampo = $_POST['dimensao_campo'];
+    $areaCampo = $_POST['area_campo'];
+    $numeroBombas = $_POST['numero_bombas'];
+    $modalidade = $_POST['modalidade'];
+    $tempoGasto = $_POST['tempo_gasto'];
+    $resultado = $_POST['resultado'];
+    $pontuacao = $_POST['pontuacao'];
 
-echo json_encode(array("message"=>"partida registrada"));
-?>
+    PartidaDAO::getInstance()->create($codUser, $dimensaoCampo, $areaCampo, $numeroBombas, $modalidade, $tempoGasto, $resultado, $pontuacao);
+
+    echo json_encode(array("status"=>201,"message" => "partida registrada"));
+} else {
+    echo json_encode(array("status"=>404,"message"=>"Campos faltando ou com problemas"));
+}

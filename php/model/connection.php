@@ -1,11 +1,11 @@
 <?php
 class Connection
 {
-    private static $DB_URL = "";
-    private static $DB_PORT = "";
-    private static $USER = "";
-    private static $PASSWORD = "";
-    private static $DATABASE = "";
+    private static $DB_URL = "grupoweb.ddns.net";
+    private static $DB_PORT = "9797";
+    private static $USER = "grupoweb";
+    private static $PASSWORD = "Grup0@g7";
+    private static $DATABASE = "progweb";
     private static $conn;
 
     public static function getConnection()
@@ -52,21 +52,22 @@ class Connection
             experiencia float,
             ranking varchar(50) not null,
             primary key (id_usuario)
-            )";
-        $tablePartida = "create table if not exists Partida(
-            id_partida int not null auto_increment,
+            )ENGINE = innodb";
+
+        $tablePartida = "create table if not exists Partida(id_partida int not null auto_increment,
             cod_usuario int not null,
             dimensao_campo int not null,
             area_campo int,
             numero_bombas int not null,
             modalidade varchar(50) not null,
+            data_partida datetime not null default now(),
             tempo_gasto float not null,
             resultado tinyint not null,
             pontuacao int not null,
             primary key (id_partida),
             constraint fk_UsuarioPartida foreign key (cod_usuario) 
             references Usuario(id_usuario) 
-            )";
+            )ENGINE = innodb";
 
 
         try {
@@ -78,4 +79,3 @@ class Connection
         }
     }
 }
-?>

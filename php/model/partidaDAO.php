@@ -18,7 +18,13 @@ class PartidaDAO extends Connection{
         values (?,?,?,?,?,?,?,?)';
 
         $smtm = parent::getConnection()->prepare($sql);
-        $smtm->execute(array($codUser,$dimensaoCampo,$areaCampo,$numeroBombas,$modalidade,$tempoGasto,$resultado,$pontuacao));
+        try {
+            $smtm->execute(array($codUser,$dimensaoCampo,$areaCampo,$numeroBombas,$modalidade,$tempoGasto,$resultado,$pontuacao));
+        } catch (PDOException $e) {
+            echo "Creating failed: " . $e->getMessage();
+            return false;
+        }
+        
         return true;
     }
 
