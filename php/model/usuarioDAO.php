@@ -15,10 +15,35 @@ class UsuarioDAO extends Connection
         return (self::$instance == null ? (self::$instance = new UsuarioDAO()) : self::$instance);
     }
 
+    public function login($username, $password)
+    {
+
+        $sql = "SELECT * FROM Usuario where username = ?";
+
+        try {
+
+            $stmt = parent::getConnection()->prepare($sql);
+            $stmt->execute(array($username));
+            $fetch = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            if (count($fetch) > 0) {
+                if (password_verify($password, $fetch[0]["senha"])) {
+                    session_start();
+                    $_SESSION["username"] = $username;
+                    $_SESSION["id_user"] = $fetch[0]["id_usuario"];
+                
+                    return true;
+                } else return false;
+            } else return false;
+        } catch (PDOException $e) {
+            echo "Ocorreu um erro: " . $e->getMessage();
+        }
+    }
+
     public function create($nome, $data, $cpf, $telefone, $email, $usuario, $senha)
     {
 
-        if ($this->existUsername($usuario)) {
+        if (!$this->existUsername($usuario)) {
 
             $sql = 'insert into Usuario (nome, data_nascimento, cpf, telefone, email, username, senha,nivel,experiencia,ranking) 
         values (?,?,?,?,?,?,?,?,?,?)';

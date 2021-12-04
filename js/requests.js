@@ -46,3 +46,27 @@ function handleRegisterGame() {
         console.log("Ocorreu uma exceção: " + e);
     }
 }
+
+function login() {
+
+    const usuario = document.getElementById('usu')
+    const password = document.getElementById('pass')
+
+    fetch("../router/login.php", {
+            method: "POST",
+            body: JSON.stringify({
+                usuario: usuario.value,
+                senha: password.value
+            })
+        })
+        .then(response => response.json())
+        .then(response => {
+            if (response["status"] === 200) {
+                window.location.replace("../pages/campo_minado.php")
+            } else {
+                window.alert("Usuário ou senha incorretos")
+            }
+        })
+        .catch(error => console.error(error))
+
+}

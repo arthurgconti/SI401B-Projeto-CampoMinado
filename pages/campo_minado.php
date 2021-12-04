@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!$_SESSION["id_user"]){
+    header("Location: inicial.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -10,7 +16,7 @@
     <link rel="stylesheet" href="../styles/pages/campo_minado.css">
 
 
-    <script src="../js/ajaxRequests.js" defer></script>
+    <script src="../js/requests.js" defer></script>
     <script src="../js/CampoMinado/configGame.js" defer></script>
     <script src="../js/CampoMinado/consts.js" defer></script>
     <script src="../js/CampoMinado/timer.js" defer></script>
@@ -19,7 +25,7 @@
     <script src="../js/CampoMinado/cell.js" defer></script>
     <script src="../js/CampoMinado/mainField.js" defer></script>
     <script src="../js/CampoMinado/score.js" defer></script>
-   
+
 
     <!-- Script para importação do kit font-awesome, que serve para utilizarmos os ícones do font-awesome -->
     <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
@@ -32,9 +38,9 @@
             <div id="principal">
                 <header>
                     <img src="../assets/G7_2.png" alt="ícone bomba com g7 escrito dentro">
-                    <a href="./perfil.html"><i class="fas fa-user"></i></a>
-                    <a href="./ranking.html"><i class="fas fa-trophy"></i></a>
-                    <a href="./inicial.php"><i class="fas fa-power-off"></i></a>
+                    <a href="./perfil.php"><i class="fas fa-user"></i></a>
+                    <a href="./ranking.php"><i class="fas fa-trophy"></i></a>
+                    <a href="../php/logout.php"><i class="fas fa-power-off"></i></a>
                 </header>
                 <div class="container-campo">
                     <div id="container-dados-partida">

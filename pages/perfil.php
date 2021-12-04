@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!$_SESSION["id_user"]){
+    header("Location: inicial.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -21,7 +27,7 @@
                     <img src="../assets/G7_4.png" alt="ícone bomba com g7 escrito dentro">
                     <h1>Perfil</h1>
                     <div class="seta">
-                        <a href="./campo_minado.html" id="back">
+                        <a href="./campo_minado.php" id="back">
                             <i class="fas fa-arrow-left font-size-fa"></i>
                         </a>
                     </div>
@@ -42,8 +48,8 @@
                 </div>
 
                 <div class="container-buttons">
-                    <a class="a-button" href="./historico.html">Histórico</a>
-                    <a class="a-button" href="./alterar-senha.html">Alterar Senha</a>
+                    <a class="a-button" href="./historico.php">Histórico</a>
+                    <a class="a-button" href="./alterar-senha.php">Alterar Senha</a>
                 </div>
             </aside>
             <section>

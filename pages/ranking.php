@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!$_SESSION["id_user"]){
+    header("Location: inicial.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -42,7 +48,7 @@
         </div>
         
         <div class="seta">
-            <a href="./campo_minado.html" id="back">
+            <a href="./campo_minado.php" id="back">
                 <i class="fas fa-arrow-left font-size-fa"></i>
             </a>
         </div>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(!$_SESSION["id_user"]){
+    header("Location: inicial.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -130,7 +136,7 @@
 
             </div>
             <div class="seta">
-                <a href="./perfil.html" id="back">
+                <a href="./perfil.php" id="back">
                     <i class="fas fa-arrow-left font-size-fa"></i>
                 </a>
             </div>
