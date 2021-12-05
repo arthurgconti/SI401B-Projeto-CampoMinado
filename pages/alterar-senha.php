@@ -18,6 +18,8 @@ $user = $controller->getUserProfile($_SESSION["id_user"]);
     <link rel="stylesheet" href="../styles/pages/perfil.css">
     <link rel="stylesheet" href="../styles/pages/alterar_senha.css">
     <!-- Script para importação do kit font-awesome, que serve para utilizar-mos os ícones do font-awesome -->
+    <script src="../js/requests.js" defer></script>
+    <script src="../js/updatePassword.js" defer></script>
     <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
 
     <title>Perfil</title>
@@ -59,7 +61,7 @@ $user = $controller->getUserProfile($_SESSION["id_user"]);
             <section>
                 <h6>Dados do jogador</h6>
 
-                <form>
+                <form name="update-password">
                     <!-- <fieldset>
                         <label for="senha_atual">Senha Atual</label>
                         <input type="password" id="senha_atual" name="senha_atual" placeholder="Sua senha atual">
@@ -75,7 +77,7 @@ $user = $controller->getUserProfile($_SESSION["id_user"]);
                         <input type="password" id="cpass" name="cpass" placeholder="Confirme a nova senha">
                     </fieldset>
 
-                    <button type="submit">Alterar</button>
+                    <button id="submitButton" type="submit" onclick="updatePassword(<?php echo $_SESSION['id_user']?>)" disabled>Alterar</button>
 
                 </form>
             </section>

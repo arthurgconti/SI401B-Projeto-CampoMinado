@@ -127,4 +127,19 @@ class UsuarioDAO extends Connection
         }
         return true;
     }
+
+    public function updatePassword($userId,$password)
+    {
+        $sql = 'update Usuario 
+            set senha=?
+            where id_usuario=?';
+
+        try {
+            $smtm = parent::getConnection()->prepare($sql);
+            $smtm->execute(array(password_hash($password,PASSWORD_DEFAULT),$userId));
+        } catch (PDOException $e) {
+            echo "Ocorreu um erro: " . $e->getMessage();
+        }
+        return true;
+    }
 }
