@@ -14,7 +14,10 @@ if(!$_SESSION["id_user"]){
     <link rel="stylesheet" href="../styles/global/global.css">
     <link rel="stylesheet" href="../styles/pages/ranking.css">
     <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
+    
+    
     <title>Ranking</title>
+
 </head>
 <body>
 <div class="container">
@@ -28,13 +31,16 @@ if(!$_SESSION["id_user"]){
             <p>Ranking Global</p>
         </div>
         <div class="caixa1">
-            <label for="tabuleiro">Tamanho do tabuleiro:</label>
-            
-            <div id="dimensoes">
-                <input type="text"  id="dimensaoX" placeholder="10" maxlength="3">
-                X
-                <input type="text"  id="dimensaoY" placeholder="10" maxlength="3">
-            </div>
+        
+        
+                        <label id="labelDimensao">Dimensões do campo</label>
+                        <div id="dimensoes">
+                            <input type="text" name="X" id="X" placeholder="10" maxlength="3" >
+                            X
+                            <input type="text" name="Y" id="Y" placeholder="10" maxlength="3">
+                        </div>
+        
+                    
             
 
         </div>
@@ -44,11 +50,11 @@ if(!$_SESSION["id_user"]){
         </div>
 
         <div class="botao-busca">
-            <button id="buscar" type="button">Buscar</button>
+            <button id="buscar" action="../php/controller/busca_rank.php" method="POST" type="button">Buscar</button>
         </div>
         
         <div class="seta">
-            <a href="./campo_minado.php" id="back">
+            <a href="./campo_minado.html" id="back">
                 <i class="fas fa-arrow-left font-size-fa"></i>
             </a>
         </div>
@@ -58,84 +64,19 @@ if(!$_SESSION["id_user"]){
     </header>
     <div class="ctn2">
         <!--parte de rank-->
-        <table class="rank">
-            <tr>
-              <th> </th>
+        <table id="tabela" class="rank">
+
+        <tr>
               <th>Usuário</th>
               <th>Bombas</th>
               <th>Tempo</th>
               <th>Modalidade</th>
             </tr>
-            <tr>
-                <th>1°</th>
-                <td>Cléber</td>
-                <td>10</td>
-                <td>3:00</td>
-                <td>Classica</td>
-            </tr>
-            <tr>
-                <th>2°</th>
-                <td>Cléber</td>
-                <td>10</td>
-                <td>3:40</td>
-                <td>Classica</td>
-            </tr>
-            <tr>
-                <th>3°</th>
-                <td>Clóvis</td>
-                <td>10</td>
-                <td>4:00</td>
-                <td>Rivotril</td>
-            </tr>
-            <tr>
-                <th>4°</th>
-                <td>Cléber</td>
-                <td>10</td>
-                <td>4:50</td>
-                <td>Rivotril</td>
-            </tr>
-            <tr>
-                <th>5°</th>
-                <td>Clóvis</td>
-                <td>10</td>
-                <td>5:00</td>
-                <td>Classica</td>
-            </tr>
-            <tr>
-                <th>6°</th>
-                <td>Clóvis</td>
-                <td>10</td>
-                <td>5:10</td>
-                <td>Classica</td>
-            </tr>
-            <tr>
-                <th>7°</th>
-                <td>Cléber</td>
-                <td>10</td>
-                <td>5:50</td>
-                <td>Rivotril</td>
-            </tr>
-            <tr>
-                <th>8°</th>
-                <td>Clóvis</td>
-                <td>10</td>
-                <td>6:00</td>
-                <td>Classica</td>
-            </tr>
-            <tr>
-                <th>9°</th>
-                <td>Cléber</td>
-                <td>10</td>
-                <td>6:30</td>
-                <td>Classica</td>
-            </tr>
-            <tr>
-                <th>10°</th>
-                <td>Cléber</td>
-                <td>10</td>
-                <td>7:00</td>
-                <td>Rivotril</td>
-            </tr>
+        
+
+
+        
+
 
         </table>
        
@@ -144,6 +85,8 @@ if(!$_SESSION["id_user"]){
 
 
 </div>
-</body>
 
+
+</body>
+<script src="../js/CampoMinado/rank.js"></script>
 </html>
