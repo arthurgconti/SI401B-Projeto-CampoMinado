@@ -12,4 +12,6 @@ class Partida{
     private $resultado;
     private $pontuacao;
 }
+
+
 ?>

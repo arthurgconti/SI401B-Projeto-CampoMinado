@@ -3,6 +3,9 @@ session_start();
 if(!$_SESSION["id_user"]){
     header("Location: inicial.php");
 }
+
+$id_logado = 1;
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -17,6 +20,39 @@ if(!$_SESSION["id_user"]){
 
 </head>
 <body>
+    <?php
+
+    try{
+
+        require_once('../php/model/partidaDAO.php');
+
+        $sql = "SELECT cod_usuario, nome, dimensao_campo, numero_bombas,
+        modalidade, data_partida, tempo_gasto, resultado,
+        ranking, pontuacao FROM Partida INNER JOIN Usuario ON Partida.cod_usuario = Usuario.id_usuario
+        WHERE Partida.cod_usuario = '$id_logado'
+        ORDER BY data_partida DESC
+        LIMIT 6";
+
+        $stmt = PartidaDAO::getConnection()->query($sql);
+        $total = $stmt->rowCount();
+
+        if($total > 0){
+
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                echo "<p>Nome: ".$row["nome"]."</p>";
+                echo "<p>Resultado da partida: ".$row["resultado"]."</p>";
+                echo "<p>Data e Hora da Partida: ".$row["data_partida"]."</p>";       
+            }
+        }
+        else {
+           echo "<p>Não existem partidas a serem exibidas</p>";
+            echo "<p>" .$id_logado."</p>";
+        }
+    }
+    catch(PDOException $e){
+        echo "Ocorreu um erro: " . $e->getMessage();
+    }
+?>
 
     <div class="container">
 
