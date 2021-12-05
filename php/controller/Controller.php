@@ -1,5 +1,6 @@
 <?php
 require_once("../php/model/usuarioDAO.php");
+require_once("../php/model/partidaDAO.php");
 
 class Controller
 {
@@ -15,5 +16,19 @@ class Controller
             "ranking" => $user->ranking, "win-streak" => 0
         );
     }
+
+    public function getUserPartida($userId){
+
+        $partida = PartidaDAO::getInstance()->retrieveUserPartida($userId);
+
+        return array(
+            "id_partida" => $partida->id_partida, "cod_usuario" => $partida->cod_usuario,
+            "dimensao_campo" => $partida->dimensao_campo, "area_campo" => $partida->area_campo,
+            "numero_bombas" => $partida->numero_bombas,"modalidade" => $partida->modalidade,
+            "tempo_gasto"=> $partida->tempo_gasto,"resultado"=> $partida->resultado,
+            "pontuacao"=> $partida->pontuacao
+        );
+    }
+
 }
 ?>

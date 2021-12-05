@@ -1,10 +1,12 @@
 <?php
+require_once("../php/controller/Controller.php");
 session_start();
 if(!$_SESSION["id_user"]){
     header("Location: inicial.php");
 }
-
-$id_logado = 1;
+$controller = new controller();
+$user = $controller->getUserProfile($_SESSION["id_user"]);
+//$partidas = $controller->getUserPartida($_SESSION["id_user"]);
 
 ?>
 <!DOCTYPE html>
@@ -20,39 +22,6 @@ $id_logado = 1;
 
 </head>
 <body>
-    <?php
-
-    try{
-
-        require_once('../php/model/partidaDAO.php');
-
-        $sql = "SELECT cod_usuario, nome, dimensao_campo, numero_bombas,
-        modalidade, data_partida, tempo_gasto, resultado,
-        ranking, pontuacao FROM Partida INNER JOIN Usuario ON Partida.cod_usuario = Usuario.id_usuario
-        WHERE Partida.cod_usuario = '$id_logado'
-        ORDER BY data_partida DESC
-        LIMIT 6";
-
-        $stmt = PartidaDAO::getConnection()->query($sql);
-        $total = $stmt->rowCount();
-
-        if($total > 0){
-
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                echo "<p>Nome: ".$row["nome"]."</p>";
-                echo "<p>Resultado da partida: ".$row["resultado"]."</p>";
-                echo "<p>Data e Hora da Partida: ".$row["data_partida"]."</p>";       
-            }
-        }
-        else {
-           echo "<p>Não existem partidas a serem exibidas</p>";
-            echo "<p>" .$id_logado."</p>";
-        }
-    }
-    catch(PDOException $e){
-        echo "Ocorreu um erro: " . $e->getMessage();
-    }
-?>
 
     <div class="container">
 
@@ -66,7 +35,7 @@ $id_logado = 1;
             <div class="container-userprofile">
                     <img src="https://static9.depositphotos.com/1605416/1081/i/950/depositphotos_10819690-stock-photo-portrait-of-a-young-capybara.jpg"
                     alt="Foto de perfil do usuário">
-                    <h6>Cléber</h6>
+                    <h6><?php echo $user["nome"] ?></h6>
             </div>
 
             <div class="ctn-vitoria">

@@ -54,7 +54,7 @@ if(!$_SESSION["id_user"]){
         </div>
         
         <div class="seta">
-            <a href="./campo_minado.html" id="back">
+            <a href="./campo_minado.php" id="back">
                 <i class="fas fa-arrow-left font-size-fa"></i>
             </a>
         </div>
