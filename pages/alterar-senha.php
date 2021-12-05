@@ -1,8 +1,11 @@
 <?php
+require_once("../php/controller/Controller.php");
 session_start();
-if(!$_SESSION["id_user"]){
+if (!$_SESSION["id_user"]) {
     header("Location: inicial.php");
 }
+$controller = new controller();
+$user = $controller->getUserProfile($_SESSION["id_user"]);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -16,7 +19,7 @@ if(!$_SESSION["id_user"]){
     <link rel="stylesheet" href="../styles/pages/alterar_senha.css">
     <!-- Script para importação do kit font-awesome, que serve para utilizar-mos os ícones do font-awesome -->
     <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
-    
+
     <title>Perfil</title>
 </head>
 
@@ -39,13 +42,13 @@ if(!$_SESSION["id_user"]){
                         alt="Foto de perfil do usuário"> -->
                     <!-- <img src="https://avatars.githubusercontent.com/u/65549547?v=4" alt="Foto de perfil do usuário"> -->
                     <img src="https://static9.depositphotos.com/1605416/1081/i/950/depositphotos_10819690-stock-photo-portrait-of-a-young-capybara.jpg" alt="Foto de perfil do usuário">
-                    <h6>Cléber</h6>
+                    <h6><?php echo $user["nome"] ?></h6>
                 </div>
 
                 <div class="container-info-ranking">
-                    <p><strong>Ranking: </strong>Gran-mestre </p>
-                    <p><strong>Win-Streak: </strong>7</p>
-                    <p><strong>Level: </strong>15</p>
+                    <p><strong>Ranking: </strong><?php echo $user["ranking"] ?> </p>
+                    <p><strong>Win-Streak: </strong><?php echo $user["win-streak"] ?></p>
+                    <p><strong>Level: </strong><?php echo $user["nivel"] ?></p>
                 </div>
 
                 <div class="container-buttons">
@@ -57,10 +60,10 @@ if(!$_SESSION["id_user"]){
                 <h6>Dados do jogador</h6>
 
                 <form>
-                    <fieldset>
+                    <!-- <fieldset>
                         <label for="senha_atual">Senha Atual</label>
                         <input type="password" id="senha_atual" name="senha_atual" placeholder="Sua senha atual">
-                    </fieldset>
+                    </fieldset> -->
 
                     <fieldset>
                         <label for="pass">Nova Senha</label>
@@ -72,7 +75,7 @@ if(!$_SESSION["id_user"]){
                         <input type="password" id="cpass" name="cpass" placeholder="Confirme a nova senha">
                     </fieldset>
 
-                    <button type="submit" disabled>Alterar</button>
+                    <button type="submit">Alterar</button>
 
                 </form>
             </section>

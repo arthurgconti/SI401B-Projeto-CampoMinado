@@ -1,5 +1,7 @@
 <?php
-require("connection.php");
+require_once("connection.php");
+require_once("usuario.php");
+
 class UsuarioDAO extends Connection
 {
     private static $instance;
@@ -31,7 +33,7 @@ class UsuarioDAO extends Connection
                     session_start();
                     $_SESSION["username"] = $username;
                     $_SESSION["id_user"] = $fetch[0]["id_usuario"];
-                
+
                     return true;
                 } else return false;
             } else return false;
@@ -75,5 +77,54 @@ class UsuarioDAO extends Connection
         } catch (PDOException $e) {
             echo "Ocorreu um erro: " . $e->getMessage();
         }
+    }
+
+    private function buildObject($row)
+    {
+        $usuario = null;
+        try {
+            $usuario = new Usuario(
+                $row["id_usuario"],
+                $row["nome"],
+                $row["data_nascimento"],
+                $row["cpf"],
+                $row["telefone"],
+                $row["email"],
+                $row["username"],
+                $row["senha"],
+                $row["nivel"],
+                $row["experiencia"],
+                $row["ranking"]
+            );
+        } catch (Exception $e) {
+            echo "Ocorreu um erro: " . $e->getMessage();
+        }
+        return $usuario;
+    }
+
+    public function retrieveUser($userId)
+    {
+        $sql = "SELECT * FROM Usuario WHERE id_usuario=$userId";
+        $stmt = parent::getConnection()->query($sql);
+
+        if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            return $this->buildObject($row);
+        }
+        return null;
+    }
+
+    public function updateUser($userId,$nome,$email,$telefone,$dataNascimento)
+    {
+        $sql = 'update Usuario 
+            set nome = ?,email=?,telefone=?,data_nascimento=?
+            where id_usuario=?';
+
+        try {
+            $smtm = parent::getConnection()->prepare($sql);
+            $smtm->execute(array($nome,$email,$telefone,$dataNascimento,$userId));
+        } catch (PDOException $e) {
+            echo "Ocorreu um erro: " . $e->getMessage();
+        }
+        return true;
     }
 }

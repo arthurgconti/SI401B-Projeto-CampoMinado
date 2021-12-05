@@ -1,8 +1,13 @@
 <?php
+require_once("../php/controller/Controller.php");
 session_start();
 if(!$_SESSION["id_user"]){
     header("Location: inicial.php");
 }
+$controller = new controller();
+$user = $controller->getUserProfile($_SESSION["id_user"]);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -14,6 +19,8 @@ if(!$_SESSION["id_user"]){
     <link rel="stylesheet" href="../styles/global/global.css">
     <link rel="stylesheet" href="../styles/pages/perfil.css">
     <!-- Script para importação do kit font-awesome, que serve para utilizar-mos os ícones do font-awesome -->
+    <script src="../js/perfil.js" defer></script>
+    <script src="../js/requests.js" defer></script>
     <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
     
     <title>Perfil</title>
@@ -38,13 +45,13 @@ if(!$_SESSION["id_user"]){
                         alt="Foto de perfil do usuário"> -->
                     <!-- <img src="https://avatars.githubusercontent.com/u/65549547?v=4" alt="Foto de perfil do usuário"> -->
                     <img src="https://static9.depositphotos.com/1605416/1081/i/950/depositphotos_10819690-stock-photo-portrait-of-a-young-capybara.jpg" alt="Foto de perfil do usuário">
-                    <h6>Cléber</h6>
+                    <h6><?php echo $user["nome"] ?></h6>
                 </div>
 
                 <div class="container-info-ranking">
-                    <p><strong>Ranking: </strong>Gran-mestre </p>
-                    <p><strong>Win-Streak: </strong>7</p>
-                    <p><strong>Level: </strong>15</p>
+                    <p><strong>Ranking: </strong><?php echo $user["ranking"] ?> </p>
+                    <p><strong>Win-Streak: </strong><?php echo $user["win-streak"] ?></p>
+                    <p><strong>Level: </strong><?php echo $user["nivel"] ?></p>
                 </div>
 
                 <div class="container-buttons">
@@ -55,38 +62,38 @@ if(!$_SESSION["id_user"]){
             <section>
                 <h6>Dados do jogador</h6>
 
-                <form>
+                <form name="form-perfil">
                     <fieldset>
                         <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="nome" placeholder="Cléber">
+                        <input type="text" id="nome" name="nome" placeholder="Cléber" value=<?php echo $user["nome"] ?>>
                     </fieldset>
 
                     <fieldset>
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Cleber@gmail.com">
+                        <input type="email" name="email" id="email" placeholder="Cleber@gmail.com" value=<?php echo $user["email"] ?>>
                     </fieldset>
 
                     <fieldset>
                         <label for="username">Username</label>
-                        <input type="text" id="username" name="username" readonly placeholder="ClebinhoMinado">
+                        <input type="text" id="username" name="username" readonly value=<?php echo $user["username"] ?> placeholder="ClebinhoMinado">
                     </fieldset>
 
                     <fieldset>
                         <label for="cpf">CPF</label>
-                        <input type="text" id="cpf" name="cpf" readonly placeholder="000.000.000-00">
+                        <input type="text" id="cpf" name="cpf" value=<?php echo $user["cpf"] ?> readonly placeholder="000.000.000-00">
                     </fieldset>
 
                     <fieldset>
                         <label for="telefone">Telefone</label>
-                        <input type="text" id="telefone" name="telefone" placeholder="(19)98878-7777">
+                        <input type="text" id="telefone" name="telefone" value=<?php echo $user["telefone"] ?> placeholder="(19)98878-7777">
                     </fieldset>
 
                     <fieldset>
                         <label for="dataNascimento">Data de Nascimento</label>
-                        <input type="text" id="dataNascimento" name="dataNascimento" placeholder="25/03/1998">
+                        <input type="date" id="dataNascimento" value=<?php echo $user["nascimento"] ?> name="dataNascimento" placeholder="25/03/1998">
                     </fieldset>
 
-                    <button type="submit" disabled>Atualizar</button>
+                    <button type="submit" onclick="updateProfile(<?php echo $_SESSION['id_user']?>)">Atualizar</button>
 
                 </form>
             </section>
