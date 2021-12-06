@@ -4,23 +4,7 @@ let labelDimensao = document.querySelector("#labelDimensao");
 let validDimensao = false;
 let tabela = document.getElementById("tabela");
 
-ranking = [["Usuário", 10],["AA", 20]];
 
-ranking.forEach(element => {
-    let newRow = tabela.insertRow(-1);
-
-  
-  let newCell = newRow.insertCell(0);
-
-  
-  element.forEach(element2 =>{
-    let newText = document.createTextNode(element2);
-    newCell.appendChild(newText);
-  })
-    
-  
-  
-});
     
     
         

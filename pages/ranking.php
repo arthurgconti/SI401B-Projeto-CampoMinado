@@ -1,8 +1,11 @@
 <?php
+require_once("../php/controller/classes.php");
 session_start();
 if(!$_SESSION["id_user"]){
     header("Location: inicial.php");
 }
+$controller = new controller();
+$partida = $controller->getUserPartida($_SESSION["id_user"]);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -66,14 +69,27 @@ if(!$_SESSION["id_user"]){
         <!--parte de rank-->
         <table id="tabela" class="rank">
 
-        <tr>
+            <tr>
               <th>Usuário</th>
               <th>Bombas</th>
               <th>Tempo</th>
               <th>Modalidade</th>
             </tr>
         
+            <?php
+            
+            foreach($partida as $u){
+                echo ("
+                    <tr>
+                    <td>$partida['id_usuario']</td>
+                    <td>$partida['numero_bombas']</td>
+                    <td>$partida['tempo_gasto']</td>
+                    <td>$partida['modalidade']</td>
+                    </tr>
+                    ")
+            }
 
+        ?>
 
         
 
