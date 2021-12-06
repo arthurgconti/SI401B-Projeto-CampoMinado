@@ -1,10 +1,9 @@
 let xhttp
 
-function sendRegisterGame(campoMinado, codUsuario, time, result) {
+function sendRegisterGame(campoMinado, time, result) {
     xhttp = new XMLHttpRequest()
 
     const bodyRequest = {
-        cod_usuario: codUsuario,
         dimensao_campo: campoMinado.sizeRow,
         area_campo: (campoMinado.sizeRow * campoMinado.sizeColumn),
         numero_bombas: campoMinado.numBomb,
@@ -20,7 +19,7 @@ function sendRegisterGame(campoMinado, codUsuario, time, result) {
     }
 
     xhttp.onreadystatechange = handleRegisterGame
-    xhttp.open('POST', '../router/insertPartida.php', true)
+    xhttp.open('POST', '../routes/insertPartida.php', true)
     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     const stringRequest = "cod_usuario=" + encodeURIComponent(bodyRequest.cod_usuario) + "&dimensao_campo=" + encodeURIComponent(bodyRequest.dimensao_campo) +
         "&area_campo=" + encodeURIComponent(bodyRequest.area_campo) + "&numero_bombas=" +
@@ -36,7 +35,19 @@ function handleRegisterGame() {
     try {
         if (xhttp.readyState === XMLHttpRequest.DONE) {
             if (xhttp.status === 200) {
-                alert("Partida registrada com sucesso");
+                const response = JSON.parse(xhttp.response)
+                
+                alert(response.message);
+                if (response.newLevel == "1") {
+                    alert("Parabéns!! Você acaba de passar de nível!!!");
+                    fetch("../routes/rankUp.php", {
+                            method: "POST",
+                            body: JSON.stringify({})
+                        })
+                        .then(response => response.json())
+                        .catch(error => console.error(error))
+                }
+
             } else {
                 alert('Um problema ocorreu.');
             }
@@ -52,7 +63,7 @@ function login() {
     const usuario = document.getElementById('usu')
     const password = document.getElementById('pass')
 
-    fetch("../router/login.php", {
+    fetch("../routes/login.php", {
             method: "POST",
             body: JSON.stringify({
                 usuario: usuario.value,

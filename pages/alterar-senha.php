@@ -48,7 +48,7 @@ $user = $controller->getUserProfile($_SESSION["id_user"]);
                 </div>
 
                 <div class="container-info-ranking">
-                    <p><strong>Ranking: </strong><?php echo $user["ranking"] ?> </p>
+                    <p><strong>Título: </strong><?php echo $user["ranking"] ?> </p>
                     <p><strong>Win-Streak: </strong><?php echo $user["win-streak"] ?></p>
                     <p><strong>Level: </strong><?php echo $user["nivel"] ?></p>
                 </div>

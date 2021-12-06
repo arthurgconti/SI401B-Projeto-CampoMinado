@@ -25,7 +25,7 @@ function updatePassword(id) {
     const pass = document.getElementById('pass')
 
 
-    fetch("../router/updatePassword.php", {
+    fetch("../routes/updatePassword.php", {
             method: "PUT",
             body: JSON.stringify({
                 id,

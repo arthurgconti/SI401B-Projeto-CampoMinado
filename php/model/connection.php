@@ -57,6 +57,7 @@ class Connection
             nivel int,
             experiencia float,
             ranking varchar(50) not null,
+            score_streak int,
             primary key (id_usuario)
             )ENGINE = innodb";
 

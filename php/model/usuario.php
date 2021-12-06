@@ -1,6 +1,7 @@
 <?php
 
-class Usuario{
+class Usuario
+{
 
     public $id_usuario;
     public $nome;
@@ -14,11 +15,22 @@ class Usuario{
     public $nivel;
     public $experiencia;
     public $ranking;
+    public $scoreStreak;
 
-    public function __construct($id_usuario,$nome,$data_nascimento,
-    $cpf,$telefone,$email,$username,$senha,$nivel,
-    $experiencia,$ranking)
-    {
+    public function __construct(
+        $id_usuario,
+        $nome,
+        $data_nascimento,
+        $cpf,
+        $telefone,
+        $email,
+        $username,
+        $senha,
+        $nivel,
+        $experiencia,
+        $ranking,
+        $scoreStreak
+    ) {
         $this->id_usuario = $id_usuario;
         $this->nome = $nome;
         $this->data_nascimento = $data_nascimento;
@@ -30,8 +42,6 @@ class Usuario{
         $this->nivel = $nivel;
         $this->experiencia = $experiencia;
         $this->ranking = $ranking;
+        $this->scoreStreak = $scoreStreak;
     }
-
-    
-
 }

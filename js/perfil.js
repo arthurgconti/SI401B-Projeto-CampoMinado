@@ -10,7 +10,7 @@ function updateProfile(id) {
     const telefone = document.getElementById('telefone')
     const dataNascimento = document.getElementById('dataNascimento')
 
-    fetch("../router/updateProfile.php", {
+    fetch("../routes/updateProfile.php", {
             method: "PUT",
             body: JSON.stringify({
                 id,

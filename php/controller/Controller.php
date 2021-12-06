@@ -13,7 +13,7 @@ class Controller
             "cpf" => $user->cpf, "telefone" => $user->telefone,
             "email" => $user->email, "username" => $user->username,
             "nivel" => $user->nivel, "experiencia" => $user->experiencia,
-            "ranking" => $user->ranking, "win-streak" => 0
+            "ranking" => $user->ranking, "win-streak" => $user->scoreStreak
         );
     }
 
@@ -31,4 +31,3 @@ class Controller
     }
 
 }
-?>

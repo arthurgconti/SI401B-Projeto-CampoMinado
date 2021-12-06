@@ -1,6 +1,7 @@
 <?php
-require("connection.php");
+require_once("connection.php");
 require_once("partida.php");
+require_once("usuarioDAO.php");
 
 class PartidaDAO extends Connection{
     private static $instance;
