@@ -80,15 +80,56 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
         
             <?php
             
-            foreach($partida as $u){
+            $conn = mysqli_connect("grupoweb.ddns.net", "grupoweb", "Grup0@g7","progweb");
+            
+
+            $sql= mysqli_query($conn,"SELECT cod_usuario, pontuacao, numero_bombas, tempo_gasto, modalidade FROM partida ORDER BY pontuacao DESC limit 10");
+            $row = mysqli_num_rows($sql);
+           
+            
+
+            while($rows=mysqli_fetch_array($sql)){
                 echo '<tr>';
-                echo '<td>'.$partida['id_usuario'].'</td>';
-                echo '<td>'.$partida['numero_bombas'].'</td>';
-                echo '<td>'.$partida['tempo_gasto'].'</td>';
-                echo '<td>'.$partida['modalidade'].'</td>';
+                echo '<td>'.$rows['cod_usuario'].'</td>';
+                echo '<td>'.$rows['pontuacao'].'</td>';
+                echo '<td>'.$rows['numero_bombas'].'</td>';
+                echo '<td>'.$rows['tempo_gasto'].'</td>';
+                echo '<td>'.$rows['modalidade'].'</td>';
                 echo '</tr>';
-                    
             }
+
+            if(isset($_POST['buscar'])) {
+                echo "This is Button1 that is selected";
+            }
+
+            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['buscar']))
+            {
+                function buscar() {
+                $tempo = $_POST['tempopartida'];
+                $tamanho = $_POST['X'];
+
+                $conn = mysqli_connect("localhost", "root", "","progweb");
+            
+                
+
+                $sql= mysqli_query($conn,"SELECT cod_usuario, pontuacao, numero_bombas, tempo_gasto, modalidade FROM partida WHERE (tempo_gasto = tempo and dimensao_campo = tamanho) ORDER BY pontuacao DESC limit 10");
+                $row = mysqli_num_rows($sql);
+           
+            
+
+                while($rows=mysqli_fetch_array($sql)){
+                echo '<tr>';
+                echo '<td>'.$rows['cod_usuario'].'</td>';
+                echo '<td>'.$rows['pontuacao'].'</td>';
+                echo '<td>'.$rows['numero_bombas'].'</td>';
+                echo '<td>'.$rows['tempo_gasto'].'</td>';
+                echo '<td>'.$rows['modalidade'].'</td>';
+                echo '</tr>';
+                }
+
+                };
+            }
+            
 
         ?>
 
