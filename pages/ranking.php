@@ -1,5 +1,6 @@
 <?php
-require_once("../php/controller/classes.php");
+require_once("../php/controller/Controller.php");
+
 session_start();
 if(!$_SESSION["id_user"]){
     header("Location: inicial.php");
@@ -7,6 +8,7 @@ if(!$_SESSION["id_user"]){
 $controller = new controller();
 $partida = $controller->getUserPartida($_SESSION["id_user"]);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -79,14 +81,13 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
             <?php
             
             foreach($partida as $u){
-                echo ("
-                    <tr>
-                    <td>$partida['id_usuario']</td>
-                    <td>$partida['numero_bombas']</td>
-                    <td>$partida['tempo_gasto']</td>
-                    <td>$partida['modalidade']</td>
-                    </tr>
-                    ")
+                echo '<tr>';
+                echo '<td>'.$partida['id_usuario'].'</td>';
+                echo '<td>'.$partida['numero_bombas'].'</td>';
+                echo '<td>'.$partida['tempo_gasto'].'</td>';
+                echo '<td>'.$partida['modalidade'].'</td>';
+                echo '</tr>';
+                    
             }
 
         ?>

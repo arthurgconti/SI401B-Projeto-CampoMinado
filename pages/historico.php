@@ -1,14 +1,41 @@
 <?php
+
 require_once("../php/controller/Controller.php");
+
 session_start();
 if(!$_SESSION["id_user"]){
     header("Location: inicial.php");
 }
 $controller = new controller();
 $user = $controller->getUserProfile($_SESSION["id_user"]);
-//$partidas = $controller->getUserPartida($_SESSION["id_user"]);
+$partidas = $controller->getUserPartida(1);
 
+$resultado = '';
+
+foreach($partidas as $partida){
+    if($partida->resultado == 0){
+        $resultado.='<div class="ctn-derrota">
+        <p class="texto-resultado">Derrota</p>
+        <p class="texto-data">'.date('d/m/Y à\s H:i:s',strtotime($partida->data_partida)).'</p>
+        </div>
+        <br>';
+    }
+    else{
+        $resultado.='<div class="ctn-vitoria">
+        <p class="texto-resultado">Vitória</p>
+        <p class="texto-data">'.date('d/m/Y à\s H:i:s',strtotime($partida->data_partida)).'</p>
+        </div>
+        <br>';
+    }
+
+}
+
+$resultado = strlen($resultado) ? $resultado : '<div class="ctn-vitoria">
+                    <p class="texto-resultado">Não há partidas a serem exibidas</p>
+                    </div>';  
+                    
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -37,44 +64,7 @@ $user = $controller->getUserProfile($_SESSION["id_user"]);
                     alt="Foto de perfil do usuário">
                     <h6><?php echo $user["nome"] ?></h6>
             </div>
-
-            <div class="ctn-vitoria">
-                <p class="texto-resultado">VITÓRIA</p>
-                <p class="texto-data">88:88 88/88/8888</p>
-
-            </div>
-            <br>
-
-            <div class="ctn-derrota">
-                <p class="texto-resultado">DERROTA</p>
-                <p class="texto-data">88:88 88/88/8888</p>
-
-            </div>
-            <br>
-
-            <div class="ctn-derrota">
-                <p class="texto-resultado">DERROTA</p>
-                <p class="texto-data">88:88 88/88/8888</p>
-
-            </div>
-            <br>
-
-            <div class="ctn-vitoria">
-                <p class="texto-resultado">VITÓRIA</p>
-                <p class="texto-data">88:88 88/88/8888</p>
-            </div>
-            <br>
-
-            <div class="ctn-vitoria">
-                <p class="texto-resultado">VITÓRIA</p>
-                <p class="texto-data">88:88 88/88/8888</p>
-            </div>
-            <br>
-
-            <div class="ctn-derrota">
-                <p class="texto-resultado">DERROTA</p>
-                <p class="texto-data">88:88 88/88/8888</p>
-            </div>
+            <div><?=$resultado?></div>
             <br>
 
         </div>

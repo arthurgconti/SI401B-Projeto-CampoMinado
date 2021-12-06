@@ -42,6 +42,7 @@ class PartidaDAO extends Connection{
                 $row["area_campo"],
                 $row["numero_bombas"],
                 $row["modalidade"],
+                $row["data_partida"],
                 $row["tempo_gasto"],
                 $row["resultado"],
                 $row["pontuacao"]
@@ -57,16 +58,17 @@ class PartidaDAO extends Connection{
         $sql = "SELECT * FROM Partida 
         WHERE cod_usuario = $userID
         ORDER BY data_partida DESC
-        LIMIT 8";
+        LIMIT 6";
 
         $stmt = parent::getConnection()->query($sql);
+        $partidas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $partidaObj = array();
 
-        if($row = $stmt->fetch(PDO::FETCH_CLASS, Partida::class)){
-
-            return $this->buildPartida($row);
+        foreach($partidas as $p){
+            $partidaObj[]= (object) $p;
         }
 
-        return null;
+        return $partidaObj;
         
     }
 
