@@ -35,18 +35,8 @@ function handleRegisterGame() {
     try {
         if (xhttp.readyState === XMLHttpRequest.DONE) {
             if (xhttp.status === 200) {
-                const response = JSON.parse(xhttp.response)
-                
+                const response = JSON.parse(xhttp.response)          
                 alert(response.message);
-                if (response.newLevel == "1") {
-                    alert("Parabéns!! Você acaba de passar de nível!!!");
-                    fetch("../routes/rankUp.php", {
-                            method: "POST",
-                            body: JSON.stringify({})
-                        })
-                        .then(response => response.json())
-                        .catch(error => console.error(error))
-                }
 
             } else {
                 alert('Um problema ocorreu.');

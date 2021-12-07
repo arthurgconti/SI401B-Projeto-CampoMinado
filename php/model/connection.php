@@ -1,16 +1,10 @@
 <?php
-// include_once('../../config/config.php');
 class Connection
 {
-    // private static $DB_URL = db_host;
-    // private static $DB_PORT = db_port;
-    // private static $USER = db_user;
-    // private static $PASSWORD = db_pass;
-    // private static $DATABASE = database;
-    private static $DB_URL = "grupoweb.ddns.net";
-    private static $DB_PORT = "9797";
-    private static $USER = "grupoweb";
-    private static $PASSWORD = "Grup0@g7";
+    private static $DB_URL = "localhost";
+    private static $DB_PORT = "3306";
+    private static $USER = "root";
+    private static $PASSWORD = "root";
     private static $DATABASE = "progweb";
     private static $conn;
 

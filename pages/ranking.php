@@ -82,7 +82,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
 
                 <?php
 
-                $conn = mysqli_connect("grupoweb.ddns.net", "grupoweb", "Grup0@g7", "progweb", 9797);
+                $conn = mysqli_connect("localhost", "root", "root", "progweb");
 
 
                 $sql = mysqli_query($conn, "SELECT u.nome, pontuacao, numero_bombas, tempo_gasto, modalidade 
@@ -112,7 +112,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
                         $tempo = $_POST['tempopartida'];
                         $tamanho = $_POST['X'];
 
-                        $conn = mysqli_connect("grupoweb.ddns.net", "grupoweb", "Grup0@g7", "progweb", 9797);
+                        $conn = mysqli_connect("localhost", "root", "root", "progweb");
 
 
 

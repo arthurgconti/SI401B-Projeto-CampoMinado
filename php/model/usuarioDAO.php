@@ -173,8 +173,6 @@ class UsuarioDAO extends Connection
                 array_push($data, $this->rankingQualification($user->nivel + 1));
                 array_push($data, $id_usuario);
 
-
-                $_SESSION["newLevel"] = "true";
             } else {
                 $sql = 'update Usuario 
                 set experiencia=?,
@@ -185,8 +183,6 @@ class UsuarioDAO extends Connection
                 array_push($data, ($user->nivel + 1));
                 array_push($data, $this->rankingQualification($user->nivel + 1));
                 array_push($data, $id_usuario);
-
-                $_SESSION["newLevel"] = "true";
             }
         } else {
             $sql = 'update Usuario 

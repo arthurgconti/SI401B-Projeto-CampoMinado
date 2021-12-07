@@ -31,28 +31,6 @@ class PartidaDAO extends Connection{
         return true;
     }
 
-    private function buildPartida($row)
-    {
-        $partida = null;
-        try {
-            $partida = new Partida(
-                $row["id_partida"],
-                $row["cod_usuario"],
-                $row["dimensao_campo"],
-                $row["area_campo"],
-                $row["numero_bombas"],
-                $row["modalidade"],
-                $row["data_partida"],
-                $row["tempo_gasto"],
-                $row["resultado"],
-                $row["pontuacao"]
-            );
-        } catch (Exception $e) {
-            echo "Ocorreu um erro: " . $e->getMessage();
-        }
-        return $partida;
-    }
-
     public function retrieveUserPartida($userID){
 
         $sql = "SELECT * FROM Partida 
