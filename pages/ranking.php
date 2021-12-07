@@ -39,7 +39,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
             </div>
             <div class="caixa1">
 
-
+            <form method="POST">
                 <label id="labelDimensao">Dimensões do campo</label>
                 <div id="dimensoes">
                     <input type="text" name="X" id="X" placeholder="10" maxlength="3">
@@ -53,12 +53,13 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
             </div>
             <div class="caixa2">
                 <label for="tempo">Tempo da partida:</label>
-                <input type="text" id="tempo" name="tempopartida" placeholder="05:47">
+                <input type="text" id="tempopartida" name="tempopartida" placeholder="24">
             </div>
-
+            
             <div class="botao-busca">
-                <button id="buscar" action="pages\ranking.php" method="POST" type="button">Buscar</button>
+                <button id="buscar" name="buscar" class="button" type="submit">Buscar</button>
             </div>
+            </form>
 
             <div class="seta">
                 <a href="./campo_minado.php" id="back">
@@ -71,15 +72,17 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
         </header>
         <div class="ctn2">
             <!--parte de rank-->
-            <table id="tabela" class="rank">
+            
 
-                <tr>
+            <table id="tabela" class="rank">
+            <tr>
                     <th>Usuário</th>
                     <th>Pontuação</th>
                     <th>Bombas</th>
                     <th>Tempo</th>
                     <th>Modalidade</th>
                 </tr>
+                
 
                 <?php
 
@@ -93,7 +96,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
             limit 10");
                 $row = mysqli_num_rows($sql);
 
-
+            
 
                 while ($rows = mysqli_fetch_array($sql)) {
                     echo '<tr>';
@@ -106,39 +109,47 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
                 }
 
 
+                
 
-                if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['buscar'])) {
-                    function buscar()
-                    {
-                        $tempo = $_POST['tempopartida'];
-                        $tamanho = $_POST['X'];
+                if(array_key_exists('buscar', $_POST)) {
+                 
+                    $tempo = $_POST['tempopartida'];
+                    $tamanho = $_POST['X'];
 
-                        $conn = mysqli_connect(db_host, db_user, db_pass, db_database);
-
-
-
-                        $sql = mysqli_query($conn, "SELECT u.nome, pontuacao, numero_bombas, tempo_gasto, modalidade 
-                        FROM Partida p
-                        INNER JOIN Usuario u ON (u.id_usuario = p.cod_usuario)
-                        WHERE (tempo_gasto = tempo and dimensao_campo = tamanho) 
-                        ORDER BY pontuacao DESC 
-                        limit 10");
-                        $row = mysqli_num_rows($sql);
+                    $conn = mysqli_connect(db_host, db_user, db_pass, db_database);
 
 
 
-                        while ($rows = mysqli_fetch_array($sql)) {
-                            echo '<tr>';
-                            echo '<td>' . $rows['nome'] . '</td>';
-                            echo '<td>' . $rows['pontuacao'] . '</td>';
-                            echo '<td>' . $rows['numero_bombas'] . '</td>';
-                            echo '<td>' . $rows['tempo_gasto'] . '</td>';
-                            echo '<td>' . $rows['modalidade'] . '</td>';
-                            echo '</tr>';
-                        }
-                    };
-                }
+                    $sql = mysqli_query($conn, "SELECT u.nome, pontuacao, numero_bombas, tempo_gasto, modalidade 
+                    FROM Partida p
+                    INNER JOIN Usuario u ON (u.id_usuario = p.cod_usuario)
+                    WHERE (tempo_gasto = {$tempo} and dimensao_campo = {$tamanho}) 
+                    ORDER BY pontuacao DESC 
+                    limit 10");
+                    $row = mysqli_num_rows($sql);
 
+                    echo '<script type="text/javascript">',
+                    'var tableHeaderRowCount = 1;
+                    var table = document.getElementById("tabela");
+                    var rowCount = table.rows.length;
+                    for (var i = tableHeaderRowCount; i < rowCount; i++) {
+                        table.deleteRow(tableHeaderRowCount);
+                    }',
+                    '</script>'
+                    ;
+                         
+
+                    while ($rows = mysqli_fetch_array($sql)) {
+                        
+                        echo '<tr>';
+                        echo '<td>' . $rows['nome'] . '</td>';
+                        echo '<td>' . $rows['pontuacao'] . '</td>';
+                        echo '<td>' . $rows['numero_bombas'] . '</td>';
+                        echo '<td>' . $rows['tempo_gasto'] . '</td>';
+                        echo '<td>' . $rows['modalidade'] . '</td>';
+                        echo '</tr>';
+                    }
+                };
 
                 ?>
 
