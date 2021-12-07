@@ -1,11 +1,12 @@
 <?php
+require_once("../config/config.php");
 class Connection
 {
-    private static $DB_URL = "localhost";
-    private static $DB_PORT = "3306";
-    private static $USER = "root";
-    private static $PASSWORD = "";
-    private static $DATABASE = "progweb";
+    private static $DB_URL = db_host;
+    private static $DB_PORT = db_port;
+    private static $USER = db_user;
+    private static $PASSWORD = db_pass;
+    private static $DATABASE = db_database;
     private static $conn;
 
     public static function getConnection()
@@ -16,7 +17,7 @@ class Connection
                 self::$USER,
                 self::$PASSWORD
             );
-
+            self::$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             return self::$conn;

@@ -1,5 +1,6 @@
 <?php
 require_once("../php/controller/Controller.php");
+require_once("../config/config.php");
 
 session_start();
 if (!$_SESSION["id_user"]) {
@@ -82,7 +83,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
 
                 <?php
 
-                $conn = mysqli_connect("localhost", "root", "", "progweb");
+                $conn = mysqli_connect(db_host, db_user, db_pass, db_database);
 
 
                 $sql = mysqli_query($conn, "SELECT u.nome, pontuacao, numero_bombas, tempo_gasto, modalidade 
@@ -112,7 +113,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
                         $tempo = $_POST['tempopartida'];
                         $tamanho = $_POST['X'];
 
-                        $conn = mysqli_connect("localhost", "root", "", "progweb");
+                        $conn = mysqli_connect(db_host, db_user, db_pass, db_database);
 
 
 
