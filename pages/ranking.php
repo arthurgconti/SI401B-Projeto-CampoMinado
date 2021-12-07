@@ -56,7 +56,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
             </div>
 
             <div class="botao-busca">
-                <button id="buscar" action="../php/controller/busca_rank.php" method="POST" type="button">Buscar</button>
+                <button id="buscar" action="pages\ranking.php" method="POST" type="button">Buscar</button>
             </div>
 
             <div class="seta">
