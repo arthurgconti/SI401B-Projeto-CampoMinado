@@ -73,6 +73,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
 
             <tr>
               <th>Usuário</th>
+              <th>Pontuação</th>
               <th>Bombas</th>
               <th>Tempo</th>
               <th>Modalidade</th>
@@ -80,7 +81,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
         
             <?php
             
-            $conn = mysqli_connect("grupoweb.ddns.net", "grupoweb", "Grup0@g7","progweb");
+            $conn = mysqli_connect("", "", "","");
             
 
             $sql= mysqli_query($conn,"SELECT cod_usuario, pontuacao, numero_bombas, tempo_gasto, modalidade FROM partida ORDER BY pontuacao DESC limit 10");
@@ -98,9 +99,7 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
                 echo '</tr>';
             }
 
-            if(isset($_POST['buscar'])) {
-                echo "This is Button1 that is selected";
-            }
+            
 
             if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['buscar']))
             {
