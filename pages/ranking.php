@@ -2,7 +2,7 @@
 require_once("../php/controller/Controller.php");
 
 session_start();
-if(!$_SESSION["id_user"]){
+if (!$_SESSION["id_user"]) {
     header("Location: inicial.php");
 }
 $controller = new controller();
@@ -19,131 +19,141 @@ $partida = $controller->getUserPartida($_SESSION["id_user"]);
     <link rel="stylesheet" href="../styles/global/global.css">
     <link rel="stylesheet" href="../styles/pages/ranking.css">
     <script src="https://kit.fontawesome.com/1de6443f41.js"></script>
-    
-    
+
+
     <title>Ranking</title>
 
 </head>
+
 <body>
-<div class="container">
-    <header class="ctn1">
-       <div id="logo">
-            <img src=https://media.discordapp.net/attachments/875488630112669717/879742285976322059/G7_3.png width="80" alt="logo do grupo">
-        </div>
-        
-    
-        <div class="h1">
-            <p>Ranking Global</p>
-        </div>
-        <div class="caixa1">
-        
-        
-                        <label id="labelDimensao">Dimensões do campo</label>
-                        <div id="dimensoes">
-                            <input type="text" name="X" id="X" placeholder="10" maxlength="3" >
-                            X
-                            <input type="text" name="Y" id="Y" placeholder="10" maxlength="3">
-                        </div>
-        
-                    
-            
-
-        </div>
-        <div class="caixa2">
-            <label for="tempo">Tempo da partida:</label>
-            <input type="text" id="tempo" name="tempopartida" placeholder="05:47">
-        </div>
-
-        <div class="botao-busca">
-            <button id="buscar" action="../php/controller/busca_rank.php" method="POST" type="button">Buscar</button>
-        </div>
-        
-        <div class="seta">
-            <a href="./campo_minado.php" id="back">
-                <i class="fas fa-arrow-left font-size-fa"></i>
-            </a>
-        </div>
-       
+    <div class="container">
+        <header class="ctn1">
+            <div id="logo">
+                <img src=https://media.discordapp.net/attachments/875488630112669717/879742285976322059/G7_3.png width="80" alt="logo do grupo">
+            </div>
 
 
-    </header>
-    <div class="ctn2">
-        <!--parte de rank-->
-        <table id="tabela" class="rank">
+            <div class="h1">
+                <p>Ranking Global</p>
+            </div>
+            <div class="caixa1">
 
-            <tr>
-              <th>Usuário</th>
-              <th>Pontuação</th>
-              <th>Bombas</th>
-              <th>Tempo</th>
-              <th>Modalidade</th>
-            </tr>
-        
-            <?php
-            
-            $conn = mysqli_connect("", "", "","");
-            
 
-            $sql= mysqli_query($conn,"SELECT cod_usuario, pontuacao, numero_bombas, tempo_gasto, modalidade FROM partida ORDER BY pontuacao DESC limit 10");
-            $row = mysqli_num_rows($sql);
-           
-            
+                <label id="labelDimensao">Dimensões do campo</label>
+                <div id="dimensoes">
+                    <input type="text" name="X" id="X" placeholder="10" maxlength="3">
+                    X
+                    <input type="text" name="Y" id="Y" placeholder="10" maxlength="3">
+                </div>
 
-            while($rows=mysqli_fetch_array($sql)){
-                echo '<tr>';
-                echo '<td>'.$rows['cod_usuario'].'</td>';
-                echo '<td>'.$rows['pontuacao'].'</td>';
-                echo '<td>'.$rows['numero_bombas'].'</td>';
-                echo '<td>'.$rows['tempo_gasto'].'</td>';
-                echo '<td>'.$rows['modalidade'].'</td>';
-                echo '</tr>';
-            }
 
-            
 
-            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['buscar']))
-            {
-                function buscar() {
-                $tempo = $_POST['tempopartida'];
-                $tamanho = $_POST['X'];
 
-                $conn = mysqli_connect("localhost", "root", "","progweb");
-            
-                
+            </div>
+            <div class="caixa2">
+                <label for="tempo">Tempo da partida:</label>
+                <input type="text" id="tempo" name="tempopartida" placeholder="05:47">
+            </div>
 
-                $sql= mysqli_query($conn,"SELECT cod_usuario, pontuacao, numero_bombas, tempo_gasto, modalidade FROM partida WHERE (tempo_gasto = tempo and dimensao_campo = tamanho) ORDER BY pontuacao DESC limit 10");
+            <div class="botao-busca">
+                <button id="buscar" action="../php/controller/busca_rank.php" method="POST" type="button">Buscar</button>
+            </div>
+
+            <div class="seta">
+                <a href="./campo_minado.php" id="back">
+                    <i class="fas fa-arrow-left font-size-fa"></i>
+                </a>
+            </div>
+
+
+
+        </header>
+        <div class="ctn2">
+            <!--parte de rank-->
+            <table id="tabela" class="rank">
+
+                <tr>
+                    <th>Usuário</th>
+                    <th>Pontuação</th>
+                    <th>Bombas</th>
+                    <th>Tempo</th>
+                    <th>Modalidade</th>
+                </tr>
+
+                <?php
+
+                $conn = mysqli_connect("grupoweb.ddns.net", "grupoweb", "Grup0@g7", "progweb", 9797);
+
+
+                $sql = mysqli_query($conn, "SELECT u.nome, pontuacao, numero_bombas, tempo_gasto, modalidade 
+            FROM Partida p
+            INNER JOIN Usuario u ON (u.id_usuario = p.cod_usuario)
+            ORDER BY pontuacao DESC 
+            limit 10");
                 $row = mysqli_num_rows($sql);
-           
-            
 
-                while($rows=mysqli_fetch_array($sql)){
-                echo '<tr>';
-                echo '<td>'.$rows['cod_usuario'].'</td>';
-                echo '<td>'.$rows['pontuacao'].'</td>';
-                echo '<td>'.$rows['numero_bombas'].'</td>';
-                echo '<td>'.$rows['tempo_gasto'].'</td>';
-                echo '<td>'.$rows['modalidade'].'</td>';
-                echo '</tr>';
+
+
+                while ($rows = mysqli_fetch_array($sql)) {
+                    echo '<tr>';
+                    echo '<td>' . $rows['nome'] . '</td>';
+                    echo '<td>' . $rows['pontuacao'] . '</td>';
+                    echo '<td>' . $rows['numero_bombas'] . '</td>';
+                    echo '<td>' . $rows['tempo_gasto'] . '</td>';
+                    echo '<td>' . $rows['modalidade'] . '</td>';
+                    echo '</tr>';
                 }
 
-                };
-            }
-            
-
-        ?>
-
-        
 
 
-        </table>
-       
+                if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['buscar'])) {
+                    function buscar()
+                    {
+                        $tempo = $_POST['tempopartida'];
+                        $tamanho = $_POST['X'];
+
+                        $conn = mysqli_connect("grupoweb.ddns.net", "grupoweb", "Grup0@g7", "progweb", 9797);
+
+
+
+                        $sql = mysqli_query($conn, "SELECT u.nome, pontuacao, numero_bombas, tempo_gasto, modalidade 
+                        FROM Partida p
+                        INNER JOIN Usuario u ON (u.id_usuario = p.cod_usuario)
+                        WHERE (tempo_gasto = tempo and dimensao_campo = tamanho) 
+                        ORDER BY pontuacao DESC 
+                        limit 10");
+                        $row = mysqli_num_rows($sql);
+
+
+
+                        while ($rows = mysqli_fetch_array($sql)) {
+                            echo '<tr>';
+                            echo '<td>' . $rows['nome'] . '</td>';
+                            echo '<td>' . $rows['pontuacao'] . '</td>';
+                            echo '<td>' . $rows['numero_bombas'] . '</td>';
+                            echo '<td>' . $rows['tempo_gasto'] . '</td>';
+                            echo '<td>' . $rows['modalidade'] . '</td>';
+                            echo '</tr>';
+                        }
+                    };
+                }
+
+
+                ?>
+
+
+
+
+            </table>
+
+        </div>
+
+
+
     </div>
-
-
-
-</div>
 
 
 </body>
 <script src="../js/CampoMinado/rank.js"></script>
+
 </html>
