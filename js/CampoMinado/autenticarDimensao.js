@@ -21,7 +21,7 @@ dimensaoX.addEventListener("keyup", () => {
 });
 
 bombas.addEventListener("keyup", () => {
-    if(bombas.value > (dimensaoX.value * 2)){
+    if(bombas.value > (Math.pow(dimensaoX.value,2)-1)){
         labelBomba.setAttribute("style", "color: red");
         labelBomba.innerHTML = "Quantidade de bombas excedida";
         validBomba = false;

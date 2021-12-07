@@ -59,7 +59,7 @@ function timerRivotril() {
                 gameOver = true;
             }
             totalTime++
-        }, 100)
+        }, 1000)
     }
 }
 

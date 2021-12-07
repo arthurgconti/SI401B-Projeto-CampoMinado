@@ -17,7 +17,8 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer, gamemode) {
     }
 
 
-    if (bombsQuantity > (sizeRow * sizeColumn)) {
+
+    if (bombsQuantity > ((sizeRow * sizeColumn)-1)) {
         alert('Quantidade máxima de bombas excedido')
         return null
     }
@@ -34,6 +35,7 @@ function generateField(sizeRow, sizeColumn, bombsQuantity, timer, gamemode) {
     //TODO criação das células
 
     
+
 
     const campoMinado = new CampoMinado(sizeRow, sizeColumn, ((sizeRow * sizeColumn) - bombsQuantity),
         0, ((sizeRow * sizeColumn) - bombsQuantity), 0,

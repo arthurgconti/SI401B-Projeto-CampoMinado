@@ -4,7 +4,7 @@ class Connection
     private static $DB_URL = "localhost";
     private static $DB_PORT = "3306";
     private static $USER = "root";
-    private static $PASSWORD = "root";
+    private static $PASSWORD = "";
     private static $DATABASE = "progweb";
     private static $conn;
 
